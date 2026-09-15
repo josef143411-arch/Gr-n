@@ -1,0 +1,8 @@
+{
+  "name": "Remix Grönvall \u0026 Partners",
+  "description": "Exklusiv och professionell webbplats för advokatbyrån Grönvall \u0026 Partners. Specialister inom brottmål, migrationsrätt, familjerätt, socialrätt, tvistemål och arvsrätt.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

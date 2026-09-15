@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Cinzel:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", "Inter", sans-serif;
+  --font-cinzel: "Cinzel", serif;
+  --font-playfair: "Playfair Display", Georgia, serif;
+  
+  --color-brand-dark: #0e1711; /* Luxurious deep olive-charcoal */
+  --color-brand-primary: #1e3525; /* Imperial olive green - Grönvall theme */
+  --color-brand-medium: #3a503f; /* Sophisticated medium olive */
+  --color-brand-light: #eff3f0; /* Soft airy sage-grey */
+  --color-brand-gold: #caa460; /* Polished warm brass/mässing */
+  --color-brand-gold-dark: #ab8646; /* Deep brass/bronze shadow */
+  --color-brand-accent: #e6decb; /* Brassy champagne */
+  --color-brand-cream: #fafaf7; /* Luxury thick card-paper tone */
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-brand-cream);
+  color: var(--color-brand-dark);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+}
+
+.font-cinzel {
+  font-family: var(--font-cinzel);
+}
+
+/* Custom fade animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.elegant-ampersand {
+  font-family: inherit;
+  font-style: normal;
+}
+
