@@ -1,6 +1,6 @@
 import React from 'react';
 import { Scale, EyeOff, Shield, HeartHandshake, Award, FileCheck } from 'lucide-react';
-import stockholmHero from '../assets/images/stockholm_hero_1783253924010.jpg';
+import stockholmHero from '../assets/images/stockholm_real_photo_1789566845719.jpg';
 
 interface AboutProps {
   language: 'sv' | 'en';

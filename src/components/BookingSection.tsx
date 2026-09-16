@@ -216,7 +216,7 @@ export default function BookingSection({ language }: BookingSectionProps) {
     setStep((prev) => (prev - 1) as 1 | 2 | 3);
   };
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!clientName || !clientEmail || !clientPhone || !caseDescription) {
       alert(t.alertMissing);
@@ -238,6 +238,28 @@ export default function BookingSection({ language }: BookingSectionProps) {
       createdAt: new Date().toISOString().split('T')[0],
       status: 'Väntar på bekräftelse',
     };
+
+    // Create FormData for send-mail.php
+    const formData = new FormData();
+    formData.append('type', 'booking');
+    formData.append('name', clientName);
+    formData.append('email', clientEmail);
+    formData.append('phone', clientPhone);
+    formData.append('area', catTrans[practiceArea as keyof typeof catTrans] || practiceArea);
+    formData.append('advisor', getStaffName(preferredStaffId === 'any' ? undefined : preferredStaffId));
+    formData.append('date', selectedDate);
+    formData.append('time', selectedTime);
+    formData.append('description', caseDescription);
+    formData.append('ref', refId);
+
+    try {
+      await fetch('/send-mail.php', {
+        method: 'POST',
+        body: formData
+      });
+    } catch (err) {
+      console.warn("Mail submission failed, continuing locally:", err);
+    }
 
     const updatedBookings = [newBooking, ...bookings];
     saveBookings(updatedBookings);

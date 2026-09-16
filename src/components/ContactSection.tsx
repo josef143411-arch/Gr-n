@@ -110,12 +110,31 @@ export default function ContactSection({ language }: ContactSectionProps) {
 
   const t = CONTACT_TRANSLATIONS[language];
 
-  const handleContactSubmit = (e: React.FormEvent) => {
+  const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !email || !message) {
       alert(t.alertMissing);
       return;
     }
+
+    // Create FormData for the backend PHP script on Oderland
+    const formData = new FormData();
+    formData.append('type', 'contact');
+    formData.append('name', name);
+    formData.append('email', email);
+    formData.append('phone', phone);
+    formData.append('category', category);
+    formData.append('message', message);
+
+    try {
+      await fetch('/send-mail.php', {
+        method: 'POST',
+        body: formData
+      });
+    } catch (err) {
+      console.warn("Mail submission failed, continuing locally:", err);
+    }
+
     setFormSubmitted(true);
   };
 

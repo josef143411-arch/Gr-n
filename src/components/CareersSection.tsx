@@ -180,22 +180,47 @@ export default function CareersSection({ language }: CareersSectionProps) {
   const [applicantTitle, setApplicantTitle] = useState('Advokat');
   const [applicantCoverLetter, setApplicantCoverLetter] = useState('');
   const [applicantResumeName, setApplicantResumeName] = useState<string | null>(null);
+  const [applicantFile, setApplicantFile] = useState<File | null>(null);
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   const t = CAREERS_TRANSLATIONS[language];
 
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
-      setApplicantResumeName(e.target.files[0].name);
+      const file = e.target.files[0];
+      setApplicantResumeName(file.name);
+      setApplicantFile(file);
     }
   };
 
-  const handleSpontaneousSubmit = (e: React.FormEvent) => {
+  const handleSpontaneousSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!applicantName || !applicantEmail || !applicantCoverLetter) {
       alert(t.alertMissing);
       return;
     }
+
+    // Create FormData for send-mail.php to handle CV attachment
+    const formData = new FormData();
+    formData.append('type', 'careers');
+    formData.append('name', applicantName);
+    formData.append('email', applicantEmail);
+    formData.append('phone', applicantPhone);
+    formData.append('role', applicantTitle);
+    formData.append('coverLetter', applicantCoverLetter);
+    if (applicantFile) {
+      formData.append('resume', applicantFile);
+    }
+
+    try {
+      await fetch('/send-mail.php', {
+        method: 'POST',
+        body: formData
+      });
+    } catch (err) {
+      console.warn("Mail submission failed, continuing locally:", err);
+    }
+
     setFormSubmitted(true);
   };
 
