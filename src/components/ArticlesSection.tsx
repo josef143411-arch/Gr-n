@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Search, PlusCircle, ArrowLeft, BookOpen, Clock, User, Check, X } from 'lucide-react';
 import { Article } from '../types';
 
@@ -8,6 +8,7 @@ interface ArticlesSectionProps {
   onAddArticle: (article: Article) => void;
   selectedArticleId: string | null;
   setSelectedArticleId: (id: string | null) => void;
+  setActiveTab?: (tab: string) => void;
 }
 
 const ARTICLES_TRANSLATIONS = {
@@ -25,7 +26,7 @@ const ARTICLES_TRANSLATIONS = {
     noArticlesDesc: 'Det finns inga artiklar som matchar din sökning eller kategori för närvarande. Prova att ändra sökord.',
     ctaTitle: 'Behöver du juridisk rådgivning gällande detta rättsområde?',
     ctaDesc: 'Kontakta gärna oss på Grönvall & Partners för en förutsättningslös diskussion gällande dina omständigheter. Våra specialister finns tillgängliga för personliga rådgivningsmöten.',
-    ctaBtn: 'Boka möte om {category}',
+    ctaBtn: 'Kontakta oss gällande {category}',
     writeBtn: 'Skriv ny artikel',
     successTitle: 'Artikel publicerad!',
     successDesc: 'Artikeln har lagts till i kunskapsbiblioteket.',
@@ -63,7 +64,7 @@ const ARTICLES_TRANSLATIONS = {
     noArticlesDesc: 'There are no articles matching your search query or category at this time. Try resetting the filters or keywords.',
     ctaTitle: 'Need legal advice in this practice area?',
     ctaDesc: 'Please do not hesitate to contact Grönvall & Partners for an initial discussion regarding your situation. Our specialists are available for personal consultations.',
-    ctaBtn: 'Book meeting regarding {category}',
+    ctaBtn: 'Contact us regarding {category}',
     writeBtn: 'Write new article',
     successTitle: 'Article published!',
     successDesc: 'The article has been added to our knowledge library.',
@@ -187,9 +188,22 @@ export default function ArticlesSection({
   onAddArticle,
   selectedArticleId,
   setSelectedArticleId,
+  setActiveTab,
 }: ArticlesSectionProps) {
   const t = ARTICLES_TRANSLATIONS[language];
   const catTrans = CATEGORIES_TRANSLATIONS[language];
+
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('admin') === 'true') {
+      localStorage.setItem('isAdmin', 'true');
+      setIsAdmin(true);
+    } else if (localStorage.getItem('isAdmin') === 'true') {
+      setIsAdmin(true);
+    }
+  }, []);
 
   const [selectedCategory, setSelectedCategory] = useState<string>('Alla');
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -337,12 +351,17 @@ export default function ArticlesSection({
                 {t.ctaDesc}
               </p>
               <div className="pt-2">
-                <a
-                  href="#booking"
-                  className="inline-flex bg-brand-primary text-brand-cream border border-brand-gold/30 px-5 py-2.5 rounded-xs text-xs font-semibold uppercase tracking-wider hover:border-brand-gold hover:bg-brand-medium transition-colors duration-200"
+                <button
+                  onClick={() => {
+                    if (setActiveTab) {
+                      setActiveTab('contact');
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                  }}
+                  className="inline-flex bg-brand-primary text-brand-cream border border-brand-gold/30 px-5 py-2.5 rounded-xs text-xs font-semibold uppercase tracking-wider hover:border-brand-gold hover:bg-brand-medium transition-colors duration-200 cursor-pointer"
                 >
                   {t.ctaBtn.replace('{category}', catTrans[selectedArticle.category as keyof typeof catTrans] || selectedArticle.category)}
-                </a>
+                </button>
               </div>
             </div>
           </article>
@@ -365,14 +384,16 @@ export default function ArticlesSection({
               </div>
 
               {/* Publish button */}
-              <button
-                onClick={() => setIsPublishingModalOpen(true)}
-                id="open-publish-modal-btn"
-                className="inline-flex items-center space-x-2 bg-brand-primary hover:bg-brand-medium text-brand-cream border border-brand-gold/30 px-5 py-3 rounded-xs text-xs font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer shadow-xs"
-              >
-                <PlusCircle size={16} className="text-brand-gold" />
-                <span>{t.writeBtn}</span>
-              </button>
+              {isAdmin && (
+                <button
+                  onClick={() => setIsPublishingModalOpen(true)}
+                  id="open-publish-modal-btn"
+                  className="inline-flex items-center space-x-2 bg-brand-primary hover:bg-brand-medium text-brand-cream border border-brand-gold/30 px-5 py-3 rounded-xs text-xs font-bold uppercase tracking-wider transition-all duration-200 cursor-pointer shadow-xs"
+                >
+                  <PlusCircle size={16} className="text-brand-gold" />
+                  <span>{t.writeBtn}</span>
+                </button>
+              )}
             </div>
 
             {/* Filter and Search Bar */}

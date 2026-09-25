@@ -18,7 +18,7 @@ const CAREERS_TRANSLATIONS = {
     requirementsLabel: 'Kravprofil',
     qualificationsLabel: 'Önskvärda kvalifikationer',
     ctaTitle: 'Intresserad av tjänsten som {title}?',
-    ctaDesc: 'Vänligen skicka ditt CV, personligt brev samt relevanta betyg/betygsutdrag till <a href="mailto:info@hgaadvokat.se" class="text-brand-primary hover:text-brand-gold font-semibold">info@hgaadvokat.se</a>. Ange referens <strong>"GP - {title}"</strong> i ämnesraden. Vi rekryterar löpande.',
+    ctaDesc: 'Vänligen skicka ditt CV, personligt brev samt relevanta betyg/betygsutdrag till <a href="mailto:info@gronvallpartners.se" class="text-brand-primary hover:text-brand-gold font-semibold">info@gronvallpartners.se</a>. Ange referens <strong>"GP - {title}"</strong> i ämnesraden. Vi rekryterar löpande.',
     disclaimer: '* Alla ansökningar och kontakter behandlas under fullständig diskretion.',
     readMoreBtn: 'Läs mer & Sök',
     cultureTitle: 'En kultur präglad av kvalitet & samarbete',
@@ -68,7 +68,7 @@ const CAREERS_TRANSLATIONS = {
     requirementsLabel: 'Requirements',
     qualificationsLabel: 'Meritorious Qualifications',
     ctaTitle: 'Interested in the position as {title}?',
-    ctaDesc: 'Please send your CV, cover letter, and relevant transcript records to <a href="mailto:info@hgaadvokat.se" class="text-brand-primary hover:text-brand-gold font-semibold">info@hgaadvokat.se</a>. Please state reference <strong>"GP - {title}"</strong> in the subject line. We recruit continuously.',
+    ctaDesc: 'Please send your CV, cover letter, and relevant transcript records to <a href="mailto:info@gronvallpartners.se" class="text-brand-primary hover:text-brand-gold font-semibold">info@gronvallpartners.se</a>. Please state reference <strong>"GP - {title}"</strong> in the subject line. We recruit continuously.',
     disclaimer: '* All applications and communications are handled under strict statutory confidentiality.',
     readMoreBtn: 'Read More & Apply',
     cultureTitle: 'A Culture Defined by Quality & Cohesion',
@@ -113,40 +113,21 @@ const LOCALIZED_POSITIONS = {
   en: {
     'pos-1': {
       title: 'Attorney at Law',
-      department: 'Criminal, Civil & Family Law',
+      department: 'Criminal Defense & Business Law',
       location: 'Stockholm, Head Office',
       type: 'Full-time',
-      description: 'We are looking for an attorney who is a member of the Swedish Bar Association and wants to become part of Grönvall & Partners. We welcome applications from lawyers with different backgrounds and specializations – whether your expertise lies in criminal defense, civil litigation, family law, or other areas of human rights and private law. We offer a collaborative environment with excellent development opportunities and a strong focus on high quality and work-life balance.',
+      description: 'We are looking for an attorney who is a member of the Swedish Bar Association and wants to become part of Grönvall & Partners. We welcome applications from lawyers with different backgrounds and specializations – whether your expertise lies in criminal defense, business law, or other legal practice fields. We offer a collaborative environment with excellent development opportunities and a strong focus on high quality and work-life balance.',
       requirements: [
         'Member of the Swedish Bar Association (Advokat)',
-        'Experience in independent client counseling and trial litigation in criminal, civil, or family law',
+        'Experience in independent client counseling and trial litigation in criminal defense, business law, or other legal areas',
         'Strong analytical ability and impeccable professional demeanor',
         'Commitment to delivering the highest standards of legal counsel'
       ],
       qualifications: [
         'Completed court clerkship (tingstjänstgöring) is meritorious',
-        'Experience with trials in general courts regarding both criminal and civil cases is a plus',
+        'Experience with trials in general courts regarding criminal, civil, or business law is a plus',
         'Additional language skills (beyond Swedish and English) are considered an asset',
         'Ability to contribute positively to our strong cohesion and team spirit'
-      ]
-    },
-    'pos-2': {
-      title: 'Associate Lawyer',
-      department: 'Criminal, Civil & Family Law',
-      location: 'Stockholm, Head Office',
-      type: 'Full-time',
-      description: 'We are looking for a committed and driven associate lawyer who wants to grow with us. The position is open to individuals who wish to work broadly within our areas of practice, primarily criminal defense, civil litigation, and family law. You will work under the supervision of experienced partners with the goal of building up your courtroom experience and eventually passing the bar exam.',
-      requirements: [
-        'Swedish Law Degree (LL.M. / Juristexamen)',
-        'Great commitment to rule of law, dispute resolution, and human rights issues',
-        'Good analytical capacity as well as excellent communication skills in speech and writing',
-        'Professional, responsive, and trustworthy demeanor'
-      ],
-      qualifications: [
-        'Completed or ongoing court clerkship (tingstjänstgöring) is meritorious',
-        'Experience from another law firm or court proceedings is meritorious',
-        'Additional language skills (beyond Swedish and English) are considered an asset',
-        'Driving license (B) facilitates travel on duty'
       ]
     },
     'pos-3': {
@@ -550,7 +531,7 @@ export default function CareersSection({ language }: CareersSectionProps) {
                     <button
                       type="submit"
                       id="submit-spontaneous-btn"
-                      className="w-full bg-brand-primary hover:bg-brand-medium text-brand-cream border border-brand-gold/40 hover:border-brand-gold py-3 px-5 rounded-lg text-xs font-bold uppercase tracking-widest transition-all duration-300 shadow-sm cursor-pointer"
+                      className="w-full bg-brand-gold hover:bg-brand-gold-dark text-brand-dark border border-brand-gold-dark/20 py-3 px-5 rounded-lg text-xs font-bold uppercase tracking-widest transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer"
                     >
                       {t.btnSubmitSpon}
                     </button>

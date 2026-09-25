@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MapPin, Phone, Mail, Clock, Send, CheckCircle, Navigation, Train, Car } from 'lucide-react';
-import officePhoto from '../assets/images/stockholm_waterfront_hero_1783159508287.jpg';
 
 interface ContactSectionProps {
   language: 'sv' | 'en';
@@ -9,7 +8,7 @@ interface ContactSectionProps {
 const CONTACT_TRANSLATIONS = {
   sv: {
     kicker: 'Kontaktinformation',
-    title: 'Kontakta Oss',
+    title: 'Kontakta oss',
     subtitle: 'Vi finns här för att besvara dina frågor, ge vägledning eller boka in ett personligt besök. Tveka inte att höra av dig. Alla kontakter omfattas av tystnadsplikt.',
     labelAddress: 'Besöks- och postadress',
     addressVal: 'Grönvall & Partners Advokatbyrå<br />Kungsholmstorg 1<br />112 21 Stockholm',
@@ -17,8 +16,7 @@ const CONTACT_TRANSLATIONS = {
     phoneVal: 'Telefon: 08-20 60 20',
     phoneSub: 'Jourtjänst gällande akuta brottmål är öppen dygnet runt. Samtliga advokater nås direkt via sina personliga nummer.',
     labelEmail: 'E-post',
-    emailVal: 'info@hgaadvokat.se',
-    emailSub: 'Säkra, krypterade e-postservrar.',
+    emailVal: 'info@gronvallpartners.se',
     labelHours: 'Öppettider',
     hoursVal: 'Vardagar: 08:15 – 16:45<br /><span class="text-brand-accent/75">Advokaterna är tillgängliga efter kontorstid på sina privata nummer.</span>',
     formTitle: 'Skicka en förfrågan',
@@ -41,8 +39,8 @@ const CONTACT_TRANSLATIONS = {
     officePhotoAlt: 'Vårt kontor på Kungsholmstorg',
     tabSubway: 'T-bana',
     tabCar: 'Bil & Parkering',
-    dirSubway: 'Ta blå linje till station <strong>Rådhuset</strong>. Välj uppgången mot <strong>Kungsholmstorg</strong>. Vårt kontor ligger mot vattnet i Kungsholmstorg på Kungsholmstorg 1, porttelefon finns tillgänglig vid entrén.',
-    dirCar: 'Det finns goda parkeringsmöjligheter i närområdet. Vi rekommenderar parkeringsplatserna längs <strong>Norr Mälarstrand</strong> eller i de närliggande garageanläggningarna på Kungsholmen, båda belägna en kort promenad från vår port.',
+    dirSubway: 'Ta blå linje till station <strong>Rådhuset</strong>. Välj uppgången mot <strong>Kungsholmstorg</strong> och promenera några minuter till <strong>Kungsholmstorg 1</strong>. Porttelefon finns tillgänglig vid entrén.',
+    dirCar: 'Det finns goda parkeringsmöjligheter i närområdet, bland annat parkering med <strong>Taxa 3</strong> och <strong>Taxa 2</strong> i direkt närhet. Vi rekommenderar även parkeringsplatserna längs <strong>Norr Mälarstrand</strong>.',
     alertMissing: 'Vänligen fyll i alla obligatoriska fält.',
     optCriminal: 'Brottmål (Försvar eller målsägande)',
     optMigration: 'Migrationsrätt (Asyl, uppehållstillstånd)',
@@ -62,8 +60,7 @@ const CONTACT_TRANSLATIONS = {
     phoneVal: 'Phone: +46 (0)8-20 60 20',
     phoneSub: 'Emergency hotline for criminal law matters is open 24/7. All advocates are reachable directly on their personal numbers.',
     labelEmail: 'Email',
-    emailVal: 'info@hgaadvokat.se',
-    emailSub: 'Secure, encrypted email servers.',
+    emailVal: 'info@gronvallpartners.se',
     labelHours: 'Office Hours',
     hoursVal: 'Weekdays: 08:15 – 16:45<br /><span class="text-brand-accent/75">Attorneys are available after office hours on their private numbers.</span>',
     formTitle: 'Send an Inquiry',
@@ -86,8 +83,8 @@ const CONTACT_TRANSLATIONS = {
     officePhotoAlt: 'Our office at Kungsholmstorg',
     tabSubway: 'Subway',
     tabCar: 'Car & Parking',
-    dirSubway: 'Take the blue line to <strong>Rådhuset</strong> station. Choose the exit towards <strong>Kungsholmstorg</strong>. Our office faces the water at Kungsholmstorg on Kungsholmstorg 1, an intercom is available at the entrance.',
-    dirCar: 'There are good parking facilities in the immediate area. We recommend the parking bays along <strong>Norr Mälarstrand</strong> or in the nearby garage facilities in Kungsholmen, both located a short walk from our door.',
+    dirSubway: 'Take the blue line to <strong>Rådhuset</strong> station. Choose the exit towards <strong>Kungsholmstorg</strong> and walk a few minutes to <strong>Kungsholmstorg 1</strong>. An intercom is available at the entrance.',
+    dirCar: 'There are good parking facilities in the immediate area, including parking with <strong>Rate 3 (Taxa 3)</strong> and <strong>Rate 2 (Taxa 2)</strong> in the direct vicinity. We also recommend the parking bays along <strong>Norr Mälarstrand</strong>.',
     alertMissing: 'Please fill in all mandatory fields.',
     optCriminal: 'Criminal Law (Defense or injured party)',
     optMigration: 'Migration Law (Asylum, residence permit)',
@@ -107,6 +104,39 @@ export default function ContactSection({ language }: ContactSectionProps) {
   const [category, setCategory] = useState('Brottmål');
   const [message, setMessage] = useState('');
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [isOpenNow, setIsOpenNow] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    try {
+      const stockholmTime = new Date().toLocaleString("en-US", { timeZone: "Europe/Stockholm" });
+      const date = new Date(stockholmTime);
+      const day = date.getDay(); // 0 is Sunday, 1 is Monday, ..., 6 is Saturday
+      const hours = date.getHours();
+      const minutes = date.getMinutes();
+      const currentTimeInMinutes = hours * 60 + minutes;
+
+      const openTimeInMinutes = 8 * 60 + 15; // 08:15
+      const closeTimeInMinutes = 16 * 60 + 45; // 16:45
+
+      const isWeekday = day >= 1 && day <= 5;
+      const isOpen = isWeekday && currentTimeInMinutes >= openTimeInMinutes && currentTimeInMinutes <= closeTimeInMinutes;
+      
+      setIsOpenNow(isOpen);
+    } catch (e) {
+      setIsOpenNow(null);
+    }
+  }, []);
+
+  const scrollToMap = () => {
+    const mapEl = document.getElementById('interactive-map');
+    if (mapEl) {
+      mapEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      mapEl.classList.add('ring-4', 'ring-brand-gold/70', 'scale-[1.01]', 'transition-all', 'duration-300');
+      setTimeout(() => {
+        mapEl.classList.remove('ring-4', 'ring-brand-gold/70', 'scale-[1.01]');
+      }, 1500);
+    }
+  };
 
   const t = CONTACT_TRANSLATIONS[language];
 
@@ -167,50 +197,106 @@ export default function ContactSection({ language }: ContactSectionProps) {
         </div>
 
         {/* 1. Address cards grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="contact-cards-grid">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 animate-fade-in" id="contact-cards-grid">
           
-          <div className="p-6 bg-brand-primary border border-brand-gold/30 rounded-xl space-y-3 shadow-md">
-            <div className="p-2.5 bg-brand-cream/10 text-brand-gold inline-block rounded-lg">
-              <MapPin size={18} />
+          {/* Address Card */}
+          <div 
+            onClick={scrollToMap}
+            className="group p-6 bg-brand-primary border border-brand-gold/30 rounded-xl flex flex-col justify-between shadow-md cursor-pointer transition-all duration-300 hover:scale-[1.03] hover:shadow-lg hover:border-brand-gold h-full"
+          >
+            <div className="space-y-3">
+              <div className="p-2.5 bg-brand-cream/10 text-brand-gold inline-block rounded-lg transition-colors group-hover:bg-brand-gold group-hover:text-brand-primary">
+                <MapPin size={18} />
+              </div>
+              <h3 className="font-cinzel text-brand-gold font-semibold text-sm uppercase tracking-wider">{t.labelAddress}</h3>
+              <div 
+                className="text-xs sm:text-sm text-brand-cream/90 font-light leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: t.addressVal }}
+              />
             </div>
-            <h3 className="font-cinzel text-brand-gold font-semibold text-sm uppercase tracking-wider">{t.labelAddress}</h3>
-            <div 
-              className="text-xs sm:text-sm text-brand-cream/90 font-light leading-relaxed"
-              dangerouslySetInnerHTML={{ __html: t.addressVal }}
-            />
-          </div>
-
-          <div className="p-6 bg-brand-primary border border-brand-gold/30 rounded-xl space-y-3 shadow-md">
-            <div className="p-2.5 bg-brand-cream/10 text-brand-gold inline-block rounded-lg">
-              <Phone size={18} />
-            </div>
-            <h3 className="font-cinzel text-brand-gold font-semibold text-sm uppercase tracking-wider">{t.labelPhone}</h3>
-            <div className="text-xs sm:text-sm text-brand-cream/90 font-light leading-relaxed">
-              <a href="tel:08206020" className="hover:text-brand-gold transition-colors block font-semibold text-brand-cream">{t.phoneVal}</a>
-              <span className="text-xs text-brand-accent/70 italic block mt-1">{t.phoneSub}</span>
-            </div>
-          </div>
-
-          <div className="p-6 bg-brand-primary border border-brand-gold/30 rounded-xl space-y-3 shadow-md">
-            <div className="p-2.5 bg-brand-cream/10 text-brand-gold inline-block rounded-lg">
-              <Mail size={18} />
-            </div>
-            <h3 className="font-cinzel text-brand-gold font-semibold text-sm uppercase tracking-wider">{t.labelEmail}</h3>
-            <div className="text-xs sm:text-sm text-brand-cream/90 font-light leading-relaxed break-all">
-              <a href={`mailto:${t.emailVal}`} className="hover:text-brand-gold transition-colors font-semibold text-brand-cream">{t.emailVal}</a>
-              <span className="text-xs text-brand-accent/70 block mt-1">{t.emailSub}</span>
+            <div className="pt-4 border-t border-brand-cream/10 mt-auto text-[11px] text-brand-gold/80 font-medium group-hover:text-brand-gold transition-colors flex items-center justify-between">
+              <span>{language === 'sv' ? 'Visa på kartan' : 'View on map'}</span>
+              <span>→</span>
             </div>
           </div>
 
-          <div className="p-6 bg-brand-primary border border-brand-gold/30 rounded-xl space-y-3 shadow-md">
-            <div className="p-2.5 bg-brand-cream/10 text-brand-gold inline-block rounded-lg">
-              <Clock size={18} />
+          {/* Phone Card */}
+          <div 
+            onClick={() => window.open('tel:08206020', '_self')}
+            className="group p-6 bg-brand-primary border border-brand-gold/30 rounded-xl flex flex-col justify-between shadow-md cursor-pointer transition-all duration-300 hover:scale-[1.03] hover:shadow-lg hover:border-brand-gold h-full"
+          >
+            <div className="space-y-3">
+              <div className="p-2.5 bg-brand-cream/10 text-brand-gold inline-block rounded-lg transition-colors group-hover:bg-brand-gold group-hover:text-brand-primary">
+                <Phone size={18} />
+              </div>
+              <h3 className="font-cinzel text-brand-gold font-semibold text-sm uppercase tracking-wider">{t.labelPhone}</h3>
+              <div className="text-xs sm:text-sm text-brand-cream/90 font-light leading-relaxed">
+                <span className="block font-semibold text-brand-cream text-sm hover:text-brand-gold transition-colors">{t.phoneVal}</span>
+                <span className="text-xs text-brand-accent/70 italic block mt-1">{t.phoneSub}</span>
+              </div>
             </div>
-            <h3 className="font-cinzel text-brand-gold font-semibold text-sm uppercase tracking-wider">{t.labelHours}</h3>
-            <div 
-              className="text-xs sm:text-sm text-brand-cream/90 font-light leading-relaxed"
-              dangerouslySetInnerHTML={{ __html: t.hoursVal }}
-            />
+            <div className="pt-4 border-t border-brand-cream/10 mt-auto text-[11px] text-brand-gold/80 font-medium group-hover:text-brand-gold transition-colors flex items-center justify-between">
+              <span>{language === 'sv' ? 'Ring oss nu' : 'Call us now'}</span>
+              <span>→</span>
+            </div>
+          </div>
+
+          {/* Email Card */}
+          <div 
+            onClick={() => window.open(`mailto:${t.emailVal}`, '_self')}
+            className="group p-6 bg-brand-primary border border-brand-gold/30 rounded-xl flex flex-col justify-between shadow-md cursor-pointer transition-all duration-300 hover:scale-[1.03] hover:shadow-lg hover:border-brand-gold h-full"
+          >
+            <div className="space-y-3">
+              <div className="p-2.5 bg-brand-cream/10 text-brand-gold inline-block rounded-lg transition-colors group-hover:bg-brand-gold group-hover:text-brand-primary">
+                <Mail size={18} />
+              </div>
+              <h3 className="font-cinzel text-brand-gold font-semibold text-sm uppercase tracking-wider">{t.labelEmail}</h3>
+              <div className="text-xs sm:text-sm text-brand-cream/90 font-light leading-relaxed break-all">
+                <span className="font-semibold text-brand-cream hover:text-brand-gold transition-colors">{t.emailVal}</span>
+              </div>
+            </div>
+            <div className="pt-4 border-t border-brand-cream/10 mt-auto text-[11px] text-brand-gold/80 font-medium group-hover:text-brand-gold transition-colors flex items-center justify-between">
+              <span>{language === 'sv' ? 'Skicka e-post' : 'Send email'}</span>
+              <span>→</span>
+            </div>
+          </div>
+
+          {/* Hours Card */}
+          <div 
+            className="p-6 bg-brand-primary border border-brand-gold/30 rounded-xl flex flex-col justify-between shadow-md transition-all duration-300 hover:scale-[1.03] hover:shadow-lg h-full"
+          >
+            <div className="space-y-3">
+              <div className="flex justify-between items-start">
+                <div className="p-2.5 bg-brand-cream/10 text-brand-gold inline-block rounded-lg">
+                  <Clock size={18} />
+                </div>
+                {isOpenNow !== null && (
+                  <div>
+                    {isOpenNow ? (
+                      <span className="inline-flex items-center text-[10px] bg-emerald-500/10 text-emerald-400 font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full border border-emerald-500/20">
+                        {language === 'sv' ? '● Öppet' : '● Open'}
+                      </span>
+                    ) : (
+                      <span className="inline-flex items-center text-[10px] bg-amber-500/10 text-amber-400 font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full border border-amber-500/20">
+                        {language === 'sv' ? '● Stängt' : '● Closed'}
+                      </span>
+                    )}
+                  </div>
+                )}
+              </div>
+              <h3 className="font-cinzel text-brand-gold font-semibold text-sm uppercase tracking-wider">{t.labelHours}</h3>
+              <div 
+                className="text-xs sm:text-sm text-brand-cream/90 font-light leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: t.hoursVal }}
+              />
+            </div>
+            <div className="pt-4 border-t border-brand-cream/10 mt-auto text-[11px] text-brand-accent/70 italic">
+              {isOpenNow ? (
+                <span>{language === 'sv' ? 'Välkommen att ringa eller besöka oss' : 'Welcome to call or visit us'}</span>
+              ) : (
+                <span>{language === 'sv' ? 'Jourtelefonen är öppen dygnet runt' : '24/7 emergency hotline is open'}</span>
+              )}
+            </div>
           </div>
 
         </div>
@@ -313,9 +399,9 @@ export default function ContactSection({ language }: ContactSectionProps) {
                   <button
                     type="submit"
                     id="submit-contact-form"
-                    className="w-full flex items-center justify-center space-x-2 bg-brand-primary hover:bg-brand-medium text-brand-cream border border-brand-gold/40 hover:border-brand-gold py-3 px-5 rounded-md text-xs font-bold uppercase tracking-widest transition-all duration-300 cursor-pointer shadow-sm"
+                    className="w-full flex items-center justify-center space-x-2 bg-brand-gold hover:bg-brand-gold-dark text-brand-dark border border-brand-gold-dark/20 py-3 px-5 rounded-md text-xs font-bold uppercase tracking-widest transition-all duration-300 cursor-pointer shadow-sm hover:shadow-md"
                   >
-                    <Send size={14} className="text-brand-gold" />
+                    <Send size={14} className="text-brand-dark" />
                     <span>{t.btnSubmit}</span>
                   </button>
                   <p className="text-[11px] text-center text-brand-medium/60 italic mt-2.5">
@@ -338,68 +424,19 @@ export default function ContactSection({ language }: ContactSectionProps) {
               </p>
             </div>
 
-            {/* Stockholm Office Photo */}
-            <div className="relative h-48 sm:h-60 rounded-xl overflow-hidden border border-brand-accent/15 mb-4 shadow-xs">
-              <img 
-                src={officePhoto} 
-                alt={t.officePhotoAlt}
-                className="w-full h-full object-cover object-center filter brightness-95"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/45 to-transparent flex items-end p-3">
-                <span className="text-[10px] font-cinzel text-brand-gold font-bold uppercase tracking-widest">
-                  Kungsholmstorg • Stockholm
-                </span>
-              </div>
-            </div>
-
-            {/* Custom SVG Stylized Map */}
-            <div className="relative bg-[#ebebe4] w-full h-64 sm:h-72 border border-brand-accent/20 rounded-xl overflow-hidden" id="interactive-map">
-              <svg className="w-full h-full text-brand-primary/10" viewBox="0 0 100 100" preserveAspectRatio="none">
-                <line x1="0" y1="35" x2="100" y2="35" stroke="currentColor" strokeWidth="4" />
-                <line x1="50" y1="0" x2="50" y2="100" stroke="currentColor" strokeWidth="4" />
-                <line x1="0" y1="75" x2="100" y2="75" stroke="currentColor" strokeWidth="3" />
-                <line x1="20" y1="0" x2="20" y2="100" stroke="currentColor" strokeWidth="2" />
-                <line x1="80" y1="0" x2="80" y2="100" stroke="currentColor" strokeWidth="2.5" strokeDasharray="1 1" />
-              </svg>
-
-              <div className="absolute top-[28%] left-[2%] text-[9px] font-bold uppercase tracking-wider text-brand-primary/50 bg-[#ebebe4]/80 px-1 rounded-md">
-                Kungsholmstorg
-              </div>
-              <div className="absolute top-[2%] left-[52%] text-[9px] font-bold uppercase tracking-wider text-brand-primary/50 bg-[#ebebe4]/80 px-1 rounded-md rotate-90 origin-left">
-                Scheelegatan
-              </div>
-              <div className="absolute top-[2%] left-[22%] text-[9px] font-bold uppercase tracking-wider text-brand-primary/50 bg-[#ebebe4]/80 px-1 rounded-md rotate-90 origin-left">
-                Garvargatan
-              </div>
-
-              {mapLandmarks.map((mark, i) => (
-                <div
-                  key={i}
-                  className="absolute text-[9px] font-medium tracking-wide text-brand-medium/70 bg-[#f4f3ec] border border-brand-accent/20 px-1.5 py-0.5 rounded-sm"
-                  style={{ left: mark.x, top: mark.y }}
-                >
-                  {mark.label}
-                </div>
-              ))}
-
-              {/* Office Pin */}
-              <div className="absolute top-[35%] left-[50%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
-                <span className="absolute inline-flex h-10 w-10 rounded-full bg-brand-gold/30 animate-ping" />
-                <span className="absolute inline-flex h-6 w-6 rounded-full bg-brand-gold/40 animate-pulse" />
-                <div className="bg-brand-primary text-brand-gold p-1.5 rounded-full border-2 border-brand-cream relative z-10 shadow-md">
-                  <Navigation size={18} className="rotate-45" />
-                </div>
-                <div className="bg-brand-primary text-brand-cream text-[10px] font-cinzel font-semibold tracking-wider uppercase px-2 py-1 rounded-md mt-1.5 border border-brand-gold/30 shadow-md flex flex-col items-center">
-                  <span className="font-bold text-brand-gold text-center leading-tight">Grönvall & Partners</span>
-                  <span className="text-[9px] font-sans normal-case text-brand-cream">Kungsholmstorg 1</span>
-                </div>
-              </div>
-
-              <div className="absolute bottom-2 right-2 bg-brand-cream/90 backdrop-blur-xs border border-brand-accent/30 rounded-md flex flex-col p-1 space-y-1 shadow-xs">
-                <button className="text-xs font-bold text-brand-primary hover:text-brand-gold w-5 h-5 flex items-center justify-center bg-brand-light rounded-sm">+</button>
-                <button className="text-xs font-bold text-brand-primary hover:text-brand-gold w-5 h-5 flex items-center justify-center bg-brand-light rounded-sm">-</button>
-              </div>
+            {/* Google Maps Interactive Map */}
+            <div className="relative w-full h-80 sm:h-96 border border-brand-accent/20 rounded-xl overflow-hidden shadow-xs bg-[#ebebe4] mb-6" id="interactive-map">
+              <iframe
+                title="Grönvall & Partners Advokatbyrå"
+                src="https://maps.google.com/maps?q=Kungsholmstorg%201,%20112%2021%20Stockholm&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full"
+              ></iframe>
             </div>
 
             {/* Directions tab */}

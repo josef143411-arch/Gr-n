@@ -4,6 +4,7 @@ import { STAFF_MEMBERS } from '../data';
 
 interface StaffSectionProps {
   language: 'sv' | 'en';
+  setActiveTab?: (tab: string) => void;
 }
 
 const STAFF_TRANSLATIONS = {
@@ -20,8 +21,8 @@ const STAFF_TRANSLATIONS = {
     showMore: 'Visa fullständiga meriter',
     showLess: 'Visa färre',
     ctaTitle: 'Söker du biträde av en specifik medarbetare?',
-    ctaDesc: 'Du kan uttrycka önskemål om att få din rådgivning eller ditt försvar lett av en viss advokat eller jurist när du gör din bokning eller kontaktar oss. Vi gör alltid vårt yttersta för att tillgodose dina önskemål.',
-    ctaBtn: 'Önska möte med oss',
+    ctaDesc: 'Du kan uttrycka önskemål om att få din rådgivning eller ditt försvar lett av en viss advokat eller jurist när du kontaktar oss. Vi gör alltid vårt yttersta för att tillgodose dina önskemål.',
+    ctaBtn: 'Kontakta oss',
   },
   en: {
     kicker: 'Our Team',
@@ -36,8 +37,8 @@ const STAFF_TRANSLATIONS = {
     showMore: 'View full credentials',
     showLess: 'Show less',
     ctaTitle: 'Looking for a specific attorney?',
-    ctaDesc: 'You can request to have your consultation or defense led by a specific attorney or associate when booking or contacting us. We always do our utmost to accommodate your wishes.',
-    ctaBtn: 'Request meeting with us',
+    ctaDesc: 'You can request to have your consultation or defense led by a specific attorney or associate when contacting us. We always do our utmost to accommodate your wishes.',
+    ctaBtn: 'Contact us',
   }
 };
 
@@ -45,80 +46,80 @@ const LOCALIZED_STAFF_MEMBERS = {
   sv: {
     'staff-1': {
       title: 'Advokat / Delägare',
-      bio: 'Robin är specialiserad på brottmål och arbetar främst som försvarsadvokat, med särskilt fokus på ekobrottmål och komplexa ärenden rörande organiserad brottslighet. Han besitter gedigen erfarenhet av grova brottmål och uppträder regelbundet i domstol i denna typ av krävande rättsprocesser. Robin åtar sig uppdrag som offentlig och privat försvarare, målsägandebiträde samt särskild företrädare för barn.',
-      specialties: ['Brottmål (Offentlig/Privat försvarare)', 'Organiserad brottslighet', 'Grov brottslighet', 'Ekonomisk brottslighet', 'Målsägandebiträde', 'Särskild företrädare för barn'],
+      bio: 'Robin arbetar med brottmål. Han besitter gedigen erfarenhet av medialt uppmärksammade rättegångar, och uppträder regelbundet i domstol som försvarare i krävande brottmål. Robin åtar sig uppdrag som offentlig och privat försvarare samt som målsägandebiträde.',
+      specialties: ['Brottmål (Offentlig/Privat försvarare)', 'Organiserad brottslighet', 'Grov brottslighet', 'Medialt uppmärksammade mål', 'Målsägandebiträde'],
       education: ['Juristexamen (LL.M.)', 'Ledamot av Sveriges advokatsamfund'],
       languages: ['Svenska (Modersmål)', 'Engelska (Flytande)']
     },
     'staff-josef': {
       title: 'Advokat / Delägare',
-      bio: 'Josef är advokat med omfattande erfarenhet av kvalificerade brottmål samt tvångsmål (LVU, LPT, LVM). Han har företrätt klienter i flera medialt uppmärksammade mål och besitter gedigen erfarenhet av såväl eko-mål som mål rörande organiserad brottslighet. Med ett strategiskt, engagerat och rättssäkert arbetssätt arbetar han målmedvetet för att tillvarata klientens intressen och uppnå bästa möjliga resultat i varje enskilt ärende.',
-      specialties: ['Brottmål (Offentlig/Privat försvarare)', 'Tvångsmål (LVU, LPT, LVM)', 'Organiserad brottslighet', 'Grov brottslighet', 'Målsägandebiträde', 'Särskild företrädare för barn', 'Ekonomisk brottslighet'],
+      bio: 'Josef är advokat med omfattande erfarenhet av kvalificerade och komplexa brottmål. Han har omfattande erfarenhet av att företräda klienter i medialt uppmärksammade mål samt mål rörande organiserad brottslighet och ekonomisk brottslighet. Josef åtar sig uppdrag som offentlig och privat försvarare samt som målsägandebiträde och särskild företrädare för barn.\n\nHan anlitas även regelbundet som ombud i komplicerade vårdnadstvister. Han åtar sig även uppdrag som offentligt biträde i mål enligt LVU, LPT och LVM.',
+      specialties: ['Brottmål (Offentlig/Privat försvarare)', 'Tvångsmål (LVU, LPT, LVM)', 'Ekomål (försvarare)', 'Organiserad brottslighet', 'Grov brottslighet', 'Målsägandebiträde', 'Särskild företrädare för barn', 'Vårdnadstvister & Familjerätt', 'Tvistemål'],
       education: ['Juristexamen (LL.M.)', 'Kandidatexamen i kriminologi', 'Ledamot av Sveriges advokatsamfund'],
       languages: ['Svenska (Modersmål)', 'Engelska (Flytande)', 'Arabiska (Flytande)']
     },
     'staff-katja': {
       title: 'Advokat / Delägare',
-      bio: 'Katja är advokat med omfattande erfarenhet av kvalificerade brottmål samt tvångsmål (LVU, LPT, LVM). Hon har företrätt klienter i ett stort antal mål avseende grov brottslighet, däribland mål rörande organiserad brottslighet, eko-mål samt medialt uppmärksammade mål. Katja är känd för sitt stora engagemang, sin uthållighet och sin noggrannhet. Hon ger aldrig upp utan granskar metodiskt varje detalj i utredningen för att säkerställa att klientens rättigheter tas till vara på bästa möjliga sätt.',
-      specialties: ['Brottmål (Offentlig/Privat försvarare)', 'Tvångsmål (LVU, LPT, LVM)', 'Organiserad brottslighet', 'Grov brottslighet', 'Målsägandebiträde', 'Särskild företrädare för barn'],
+      bio: 'Katja är advokat med omfattande erfarenhet av kvalificerade brottmål samt tvångsmål och psykiatrimål enligt LVU, LPT, LVM och LRV. Hon företräder regelbundet klienter i medialt uppmärksammade mål samt mål rörande grov och organiserad brottslighet och ekomål.\n\nKatja åtar sig även regelbundet uppdrag som målsägandebiträde och särskild företrädare för barn.',
+      specialties: ['Brottmål (Offentlig/Privat försvarare)', 'Tvångsmål (LVU, LPT, LVM, LRV)', 'Ekomål (försvarare)', 'Organiserad brottslighet', 'Grov brottslighet', 'Medialt uppmärksammade mål', 'Målsägandebiträde', 'Särskild företrädare för barn'],
       education: ['Juristexamen (LL.M.)', 'Ledamot av Sveriges advokatsamfund'],
       languages: ['Svenska (Modersmål)', 'Engelska (Flytande)']
     },
     'staff-kevin': {
-      title: 'Advokat',
-      bio: 'Kevin är advokat specialiserad på brottmål, tvångsmål (LVU, LPT, LVM) och familjerätt. Han åtar sig uppdrag som offentlig och privat försvarare, samt som målsägandebiträde och särskild företrädare för barn. Kevin har även gedigen erfarenhet av grova brottmål, organiserad brottslighet, mediala mål samt känsliga vårdnadstvister och familjerättsliga processer. Med ett djupt personligt engagemang och strategisk skärpa kämpar han alltid hängivet för att säkra bästa möjliga utfall för sina klienter.',
-      specialties: ['Brottmål (Offentlig/Privat försvarare)', 'Tvångsmål (LVU, LPT, LVM)', 'Organiserad brottslighet', 'Grov brottslighet', 'Målsägandebiträde', 'Särskild företrädare för barn', 'Familjerätt (Vårdnad, boende, umgänge)'],
+      title: 'Advokat / Notarius Publicus',
+      bio: 'Kevin är advokat och Notarius Publicus, specialiserad på brottmål, tvångsmål (LVU, LPT, LVM) och familjerätt. Han åtar sig uppdrag som offentlig och privat försvarare, samt som målsägandebiträde och särskild företrädare för barn.',
+      specialties: ['Brottmål (Offentlig/Privat försvarare)', 'Notarius Publicus', 'Tvångsmål (LVU, LPT, LVM)', 'Organiserad brottslighet', 'Målsägandebiträde', 'Särskild företrädare för barn', 'Familjerätt (Vårdnad, boende, umgänge)'],
       education: ['Juristexamen (LL.M.)', 'Ledamot av Sveriges advokatsamfund'],
       languages: ['Svenska (Modersmål)', 'Engelska (Flytande)', 'Bosniska (Flytande)']
     },
     'staff-rosanna': {
       title: 'Paralegal',
-      bio: 'Rosanna är paralegal hos oss och det är oftast henne du först kommer i kontakt med när du skickar en förfrågan. Hon ansvarar för vårt inledande klientmottagande, koordinerar ärenden och ger administrativt och praktiskt stöd till våra advokater.',
+      bio: 'Rosanna är paralegal hos oss och det är oftast henne du kommer i kontakt med när du först kommer i kontakt med oss. Hon ansvarar för vårt inledande klientmottagande, koordinerar ärenden och ger administrativt och praktiskt stöd till våra advokater.',
       specialties: ['Klientmottagande', 'Ärendekoordinering', 'Administrativt stöd'],
-      education: ['Paralegal-utbildning', 'Certifierad administratör'],
+      education: ['Paralegal-utbildning'],
       languages: ['Svenska (Modersmål)', 'Engelska (Flytande)']
     },
     'staff-johan': {
       title: 'Advokat',
-      bio: 'Johan Hansson bedriver advokatverksamhet i kontorsgemenskap med Grönvall & Partners. Han är specialiserad på bouppteckningar, arvstvister och familjerätt, men har även gedigen erfarenhet av brottmål, tvistemål samt affärsjuridiska ärenden och åtar sig regelbundet uppdrag som offentlig och privat försvarare samt målsägandebiträde.',
+      bio: 'Johan Hansson bedriver advokatverksamhet i kontorsgemenskap med Grönvall & Partners. Han har gedigen erfarenhet av brottmål och åtar sig regelbundet uppdrag som offentlig och privat försvarare samt målsägandebiträde. Han är även specialiserad på bouppteckningar, arvstvister och familjerätt.',
       specialties: ['Bouppteckningar', 'Arvstvister', 'Brottmål (Offentlig/Privat försvarare)', 'Tvistemål', 'Affärsjuridik', 'Målsägandebiträde'],
       education: ['Juristexamen (LL.M.)', 'Ledamot av Sveriges advokatsamfund'],
       languages: ['Svenska (Modersmål)', 'Engelska (Flytande)']
     },
     'staff-jessica': {
       title: 'Advokatassistent',
-      bio: 'Jessica Löfquist arbetar som advokatassistent och ingår i kontorsgemenskapen med Grönvall & Partners. Hon bistår advokaterna med kvalificerad administrativ support, klientkontakter, domstolskommunikation samt löpande ärendehantering.',
+      bio: 'Jessica Löfquist arbetar som advokatassistent i kontorsgemenskapen med Grönvall & Partners. Hon bistår advokaterna med administrativ support, klientkontakter, domstolskommunikation samt löpande ärendehantering.',
       specialties: ['Administrativ support', 'Klientmottagande', 'Ärendehantering', 'Domstolskommunikation'],
-      education: ['Utbildad advokatsekreterare / paralegal', 'Löpande yrkesutbildningar hos Advokatsamfundet'],
+      education: [],
       languages: ['Svenska (Modersmål)', 'Engelska (Flytande)']
     }
   },
   en: {
     'staff-1': {
-      title: 'Attorney at Law / Partner',
-      bio: 'Robin Grönvall specializes in criminal law and works primarily as defense counsel, with a special focus on financial crimes and complex cases concerning organized crime. He possesses extensive experience in major criminal cases and regularly appears in court in these types of demanding legal proceedings. Robin accepts appointments as public and private defense counsel, counsel for injured parties, and special representative for children.',
-      specialties: ['Criminal Defense (Public/Private)', 'Organized Crime', 'Major Offences', 'Financial Crimes', 'Counsel for Injured Parties', 'Special Representative for Children'],
+      title: 'Attorney / Partner',
+      bio: 'Robin works with criminal defense. He possesses solid experience of media-profiled trials, and regularly appears in court as defense counsel in demanding criminal cases. Robin accepts appointments as public and private defense counsel, as well as counsel for injured parties.',
+      specialties: ['Criminal Defense (Public/Private defense)', 'Organized Crime', 'Major Felonies', 'High-profile Cases', 'Counsel for Injured Parties'],
       education: ['Master of Laws (LL.M.)', 'Member of the Swedish Bar Association'],
       languages: ['Swedish (Native)', 'English (Fluent)']
     },
     'staff-josef': {
-      title: 'Attorney at Law / Partner',
-      bio: 'Josef Ben Ali is an attorney with extensive experience in qualified criminal cases as well as compulsory care cases (LVU, LPT, LVM). He has represented clients in several high-profile, media-reported trials and possesses solid experience in both white-collar crime and trials concerning organized crime. With a strategic, dedicated, and legally secure approach, he works goal-oriented to protect the client\'s interests and achieve the best possible result in each individual case.',
-      specialties: ['Criminal Defense (Public/Private)', 'Compulsory Care (LVU, LPT, LVM)', 'Organized Crime', 'Major Offences', 'Counsel for Injured Parties', 'Special Representative for Children', 'Financial Crimes'],
+      title: 'Attorney / Partner',
+      bio: 'Josef is an attorney with extensive experience in qualified and complex criminal cases. He has extensive experience representing clients in high-profile and media-reported cases as well as cases concerning organized crime and white-collar/financial crime. Josef accepts appointments as public and private defense counsel, as well as counsel for injured parties and special representative for children.\n\nHe is also regularly engaged as counsel in complex custody disputes. He also accepts appointments as public counsel in cases under LVU, LPT, and LVM.',
+      specialties: ['Criminal Defense (Public/Private)', 'Compulsory Care (LVU, LPT, LVM)', 'White-Collar / Financial Crimes (Defense)', 'Organized Crime', 'Major Offences', 'Counsel for Injured Parties', 'Special Representative for Children', 'Custody Disputes & Family Law', 'Civil Litigation'],
       education: ['Master of Laws (LL.M.)', 'Bachelor of Science in Criminology', 'Member of the Swedish Bar Association'],
       languages: ['Swedish (Native)', 'English (Fluent)', 'Arabic (Fluent)']
     },
     'staff-katja': {
-      title: 'Attorney at Law / Partner',
-      bio: 'Katja Jofred is an attorney with extensive experience in qualified criminal cases as well as compulsory care cases (LVU, LPT, LVM). She has represented clients in a large number of trials concerning major offences, including trials involving organized crime, economic crime cases (eko-mål), as well as high-profile media cases. Katja is known for her immense commitment, endurance, and meticulousness. She never gives up, methodically examining every detail of the investigation to ensure the client\'s rights are protected in the best possible way.',
-      specialties: ['Criminal Defense (Public/Private)', 'Compulsory Care (LVU, LPT, LVM)', 'Organized Crime', 'Major Offences', 'Counsel for Injured Parties', 'Special Representative for Children'],
+      title: 'Attorney / Partner',
+      bio: 'Katja is an attorney with extensive experience in qualified criminal cases as well as compulsory care and forensic psychiatric care cases under LVU, LPT, LVM, and LRV. She regularly represents clients in high-profile cases as well as cases concerning serious and organized crime and financial crimes.\n\nKatja also regularly accepts appointments as counsel for injured parties and as a special representative for children.',
+      specialties: ['Criminal Defense (Public/Private)', 'Compulsory Care (LVU, LPT, LVM, LRV)', 'White-Collar / Financial Crimes (Defense)', 'Organized Crime', 'Major Offences', 'High-profile Cases', 'Counsel for Injured Parties', 'Special Representative for Children'],
       education: ['Master of Laws (LL.M.)', 'Member of the Swedish Bar Association'],
       languages: ['Swedish (Native)', 'English (Fluent)']
     },
     'staff-kevin': {
-      title: 'Attorney at Law',
-      bio: 'Kevin Sarajlija is an attorney specializing in criminal law, compulsory care cases (LVU, LPT, LVM), and family law. He accepts appointments as public and private defense counsel, as well as counsel for injured parties and special representative for children. Kevin also has solid experience in major criminal cases, organized crime, media-profiled cases, and sensitive custody disputes and family law proceedings. With deep personal commitment and strategic sharp-mindedness, he always fights dedicatedly to secure the best possible outcome for his clients.',
-      specialties: ['Criminal Defense (Public/Private)', 'Compulsory Care (LVU, LPT, LVM)', 'Organized Crime', 'Major Offences', 'Counsel for Injured Parties', 'Special Representative for Children', 'Family Law (Custody, residence, visitation)'],
+      title: 'Attorney / Notary Public',
+      bio: 'Kevin is an attorney and Notary Public, specializing in criminal defense, compulsory care cases (LVU, LPT, LVM), and family law. He accepts appointments as public and private defense counsel, as well as counsel for injured parties and special representative for children.',
+      specialties: ['Criminal Defense (Public/Private)', 'Notary Public', 'Compulsory Care (LVU, LPT, LVM)', 'Organized Crime', 'Counsel for Injured Parties', 'Special Representative for Children', 'Family Law (Custody, residence, visitation)'],
       education: ['Master of Laws (LL.M.)', 'Member of the Swedish Bar Association'],
       languages: ['Swedish (Native)', 'English (Fluent)', 'Bosnian (Fluent)']
     },
@@ -126,27 +127,27 @@ const LOCALIZED_STAFF_MEMBERS = {
       title: 'Paralegal',
       bio: 'Rosanna is our paralegal and is usually the first person you come into contact with when submitting an inquiry. She is responsible for our initial client reception, coordinates cases, and provides administrative and practical support to our attorneys.',
       specialties: ['Client Reception', 'Case Coordination', 'Administrative Support'],
-      education: ['Paralegal Diploma', 'Certified Administrator'],
+      education: ['Paralegal Diploma'],
       languages: ['Swedish (Native)', 'English (Fluent)']
     },
     'staff-johan': {
       title: 'Attorney at Law',
-      bio: 'Johan Hansson practices law in an office sharing association with Grönvall & Partners. He specializes in estate distributions, inheritance disputes, and family law, but also has extensive experience in criminal defense, civil litigation, and commercial law, regularly accepting appointments as public and private defense counsel as well as counsel for injured parties.',
-      specialties: ['Estate Distributions', 'Inheritance Disputes', 'Family Law', 'Criminal Defense (Public/Private)', 'Civil Litigation', 'Commercial Law'],
+      bio: 'Johan Hansson practices law in an office sharing association with Grönvall & Partners. He has extensive experience in criminal cases and regularly accepts appointments as public and private defense counsel, as well as counsel for injured parties. He is also specialized in estate distributions, inheritance disputes, and family law.',
+      specialties: ['Estate Distributions', 'Inheritance Disputes', 'Criminal Defense (Public/Private)', 'Civil Litigation', 'Business Law', 'Counsel for Injured Parties'],
       education: ['Master of Laws (LL.M.)', 'Member of the Swedish Bar Association'],
       languages: ['Swedish (Native)', 'English (Fluent)']
     },
     'staff-jessica': {
       title: 'Legal Assistant',
-      bio: 'Jessica Löfquist works as a legal assistant and is part of the office sharing association with Grönvall & Partners. She assists the attorneys with qualified administrative support, client relations, court correspondence, and ongoing case management.',
+      bio: 'Jessica Löfquist works as a legal assistant within the office sharing association with Grönvall & Partners. She assists the attorneys with administrative support, client relations, court correspondence, and ongoing case management.',
       specialties: ['Administrative Support', 'Client Relations', 'Case Management', 'Court Correspondence'],
-      education: ['Trained Legal Assistant / Paralegal', 'Ongoing professional development courses at the Swedish Bar Association'],
+      education: [],
       languages: ['Swedish (Native)', 'English (Fluent)']
     }
   }
 };
 
-export default function StaffSection({ language }: StaffSectionProps) {
+export default function StaffSection({ language, setActiveTab }: StaffSectionProps) {
   const t = STAFF_TRANSLATIONS[language];
 
   // Get full list of localized staff members
@@ -372,12 +373,17 @@ export default function StaffSection({ language }: StaffSectionProps) {
               {t.ctaDesc}
             </p>
           </div>
-          <a
-            href="#booking"
-            className="bg-brand-gold hover:bg-brand-gold-dark text-brand-dark px-6 py-3 rounded-lg text-xs font-bold uppercase tracking-widest transition-all duration-300 whitespace-nowrap"
+          <button
+            onClick={() => {
+              if (setActiveTab) {
+                setActiveTab('contact');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }
+            }}
+            className="bg-brand-gold hover:bg-brand-gold-dark text-brand-dark px-6 py-3 rounded-lg text-xs font-bold uppercase tracking-widest transition-all duration-300 whitespace-nowrap cursor-pointer"
           >
             {t.ctaBtn}
-          </a>
+          </button>
         </div>
 
       </div>

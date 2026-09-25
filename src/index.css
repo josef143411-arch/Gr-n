@@ -10,11 +10,11 @@
   --color-brand-dark: #0e1711; /* Luxurious deep olive-charcoal */
   --color-brand-primary: #1e3525; /* Imperial olive green - Grönvall theme */
   --color-brand-medium: #3a503f; /* Sophisticated medium olive */
-  --color-brand-light: #eff3f0; /* Soft airy sage-grey */
+  --color-brand-light: #e3ebe5; /* Elegant light sage-green tint */
   --color-brand-gold: #caa460; /* Polished warm brass/mässing */
   --color-brand-gold-dark: #ab8646; /* Deep brass/bronze shadow */
   --color-brand-accent: #e6decb; /* Brassy champagne */
-  --color-brand-cream: #fafaf7; /* Luxury thick card-paper tone */
+  --color-brand-cream: #f3f7f4; /* Sophisticated light desaturated sage-cream */
 }
 
 body {

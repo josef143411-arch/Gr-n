@@ -13,7 +13,7 @@ export interface Article {
 export interface Staff {
   id: string;
   name: string;
-  title: 'Advokat / Delägare' | 'Advokat' | 'Biträdande jurist' | 'Paralegal' | 'Administrativ chef' | 'Paralegal / Administrativ chef' | 'Advokatassistent';
+  title: 'Advokat / Delägare' | 'Advokat' | 'Biträdande jurist' | 'Paralegal' | 'Administrativ chef' | 'Paralegal / Administrativ chef' | 'Advokatassistent' | 'Juriststudent / Advokatassistent' | 'Advokat / Notarius Publicus';
   bio: string;
   email: string;
   phone?: string;

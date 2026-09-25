@@ -41,17 +41,17 @@ const RETRIALS_TRANSLATIONS = {
       {
         num: 'I',
         title: 'Inledande Granskning & Analys',
-        description: 'Vi läser igenom samtliga handlingar från din tidigare rättegång: domslut, fup (förundersökningsprotokoll), domskäl, hovrättsdom samt vittnesförhör. Det är här vi söker efter sprickor i bevisningen eller bristande utredningsarbete.'
+        description: 'Vi går igenom samtliga handlingar från den tidigare rättsprocessen: domar, förundersökningsprotokoll m.m.'
       },
       {
         num: 'II',
-        title: 'Sökande efter Nya Omständigheter (Egenutredning)',
-        description: 'Eftersom resning kräver helt nya omständigheter eller bevis, räcker det inte med att tycka att hovrätten dömde fel. Vi gör egna undersökningar, lokaliserar nya vittnen, konsulterar tekniska/medicinska experter eller tar fram ny skriftlig bevisning.'
+        title: 'Egenutredning',
+        description: 'Eftersom resning kräver helt nya omständigheter eller bevis, räcker det inte med att hävda att domstolen dömde fel. Vi gör egna undersökningar, lokaliserar nya vittnen, konsulterar tekniska eller medicinska experter och tar fram ny skriftlig bevisning.'
       },
       {
         num: 'III',
         title: 'Formulering av Resningsansökan',
-        description: 'Vi upprättar en gedigen, juridiskt slagkraftig skriftlig ansökan till Högsta domstolen. Ansökan måste med mikroskopisk precision bevisa att de nya bevisen med hög sannolikhet skulle ha lett till en frikännande dom vid den ordinarie rättegången.'
+        description: 'Vi upprättar en gedigen skriftlig ansökan till Högsta domstolen. Ansökan måste på ett strukturerat och övertygande sätt påvisa att de nya bevisen eller omständigheterna med hög sannolikhet skulle ha lett till en frikännande dom vid en prövning.'
       },
       {
         num: 'IV',
@@ -95,17 +95,17 @@ const RETRIALS_TRANSLATIONS = {
       {
         num: 'I',
         title: 'Initial Review & Analysis',
-        description: 'We read through all documents from your previous trial: the verdict, police inquiry protocol (FUP), judgment grounds, appeal court verdict, and witness hearings. This is where we analyze the evidence for flaws or insufficient police work.'
+        description: 'We read through all documents from the previous trial: the verdict, police inquiry protocol, judgment grounds, appeal court verdict, and witness hearings.'
       },
       {
         num: 'II',
-        title: 'Search for New Circumstances (Inquest)',
+        title: 'Inquest',
         description: 'Since a retrial requires entirely new circumstances or evidence, it is not enough to argue that the court was wrong. We conduct our own investigations, locate new witnesses, consult technical or medical experts, and secure new written proof.'
       },
       {
         num: 'III',
         title: 'Drafting the Retrial Petition',
-        description: 'We construct a robust, legally compelling written petition to the Supreme Court. The petition must prove with microscopic precision that the new evidence would have highly likely resulted in an acquittal at the original trial.'
+        description: 'We construct a solid, structured written petition to the Supreme Court. The petition must clearly and convincingly demonstrate that the new evidence or circumstances would have highly likely resulted in an acquittal.'
       },
       {
         num: 'IV',
@@ -166,23 +166,19 @@ export default function Retrials({ language }: RetrialsProps) {
               {t.introP2}
             </p>
           </div>
-          <div className="md:col-span-5 bg-brand-primary text-brand-cream p-8 rounded-xs space-y-4 shadow-lg border border-brand-gold/20">
-            <Scale size={32} className="text-brand-gold" />
+          <div className="md:col-span-5 bg-brand-primary text-brand-cream p-8 rounded-xl space-y-4 shadow-lg border border-brand-gold/20">
             <h3 className="font-cinzel text-brand-gold text-base tracking-wider uppercase">
               {t.sidebarTitle}
             </h3>
-            <ul className="space-y-3 text-xs font-light text-brand-accent/90">
-              <li className="flex items-start space-x-2">
-                <ShieldCheck size={14} className="text-brand-gold shrink-0 mt-0.5" />
-                <span>{t.sidebarItem1}</span>
+            <ul className="space-y-3 text-xs font-light text-brand-accent/90 list-disc list-inside">
+              <li className="leading-relaxed">
+                <span className="ml-1">{t.sidebarItem1}</span>
               </li>
-              <li className="flex items-start space-x-2">
-                <ShieldCheck size={14} className="text-brand-gold shrink-0 mt-0.5" />
-                <span>{t.sidebarItem2}</span>
+              <li className="leading-relaxed">
+                <span className="ml-1">{t.sidebarItem2}</span>
               </li>
-              <li className="flex items-start space-x-2">
-                <ShieldCheck size={14} className="text-brand-gold shrink-0 mt-0.5" />
-                <span>{t.sidebarItem3}</span>
+              <li className="leading-relaxed">
+                <span className="ml-1">{t.sidebarItem3}</span>
               </li>
             </ul>
           </div>
@@ -201,12 +197,15 @@ export default function Retrials({ language }: RetrialsProps) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {t.phases.map((phase, idx) => (
-              <div key={idx} className="p-8 bg-brand-primary border border-brand-gold/20 rounded-xs hover:border-brand-gold/40 hover:shadow-lg transition-all duration-300 relative group">
-                <span className="font-cinzel text-3xl font-light text-brand-gold/40 group-hover:text-brand-gold absolute top-4 right-6 transition-colors duration-300">
+              <div 
+                key={idx} 
+                className="p-8 bg-brand-primary border border-brand-gold/20 rounded-xl hover:border-brand-gold/55 hover:shadow-xl hover:scale-[1.015] hover:ring-1 hover:ring-brand-gold/30 transition-all duration-350 relative group"
+              >
+                <span className="font-cinzel text-3xl font-light text-brand-gold/40 group-hover:text-brand-gold absolute top-4 right-6 transition-all duration-350 group-hover:scale-105">
                   {phase.num}
                 </span>
                 <div className="space-y-3 pr-8">
-                  <h3 className="font-cinzel text-base font-semibold text-brand-gold tracking-wide">
+                  <h3 className="font-cinzel text-base font-semibold text-brand-gold tracking-wide transition-colors group-hover:text-brand-gold-light">
                     {phase.title}
                   </h3>
                   <p className="text-sm text-brand-cream/90 font-light leading-relaxed">
@@ -219,7 +218,7 @@ export default function Retrials({ language }: RetrialsProps) {
         </section>
 
         {/* Confidential Evaluation Form */}
-        <section className="bg-brand-light p-8 sm:p-12 border border-brand-accent/20 rounded-xs" id="retrials-consultation">
+        <section className="bg-brand-light p-8 sm:p-12 border border-brand-accent/20 rounded-2xl" id="retrials-consultation">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
             
             <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
@@ -250,7 +249,7 @@ export default function Retrials({ language }: RetrialsProps) {
               </div>
             </div>
 
-            <div className="lg:col-span-7 bg-brand-cream border border-brand-accent/25 p-6 sm:p-8 rounded-xs shadow-xs">
+            <div className="lg:col-span-7 bg-brand-cream border border-brand-accent/25 p-6 sm:p-8 rounded-xl shadow-xs">
               {formSubmitted ? (
                 <div className="text-center py-12 space-y-4 animate-fade-in" id="retrial-success-message">
                   <div className="w-12 h-12 bg-brand-primary text-brand-gold rounded-full flex items-center justify-center mx-auto">
@@ -275,7 +274,7 @@ export default function Retrials({ language }: RetrialsProps) {
                         value={inquiryName}
                         onChange={(e) => setInquiryName(e.target.value)}
                         placeholder={t.placeholderName}
-                        className="w-full bg-brand-light/40 border border-brand-accent/35 focus:border-brand-gold focus:ring-1 focus:ring-brand-gold rounded-xs px-3 py-2 text-brand-dark focus:outline-hidden"
+                        className="w-full bg-brand-light/40 border border-brand-accent/35 focus:border-brand-gold focus:ring-1 focus:ring-brand-gold rounded-md px-3 py-2 text-brand-dark focus:outline-hidden"
                       />
                     </div>
                     {/* Phone */}
@@ -286,7 +285,7 @@ export default function Retrials({ language }: RetrialsProps) {
                         value={inquiryPhone}
                         onChange={(e) => setInquiryPhone(e.target.value)}
                         placeholder={t.placeholderPhone}
-                        className="w-full bg-brand-light/40 border border-brand-accent/35 focus:border-brand-gold focus:ring-1 focus:ring-brand-gold rounded-xs px-3 py-2 text-brand-dark focus:outline-hidden"
+                        className="w-full bg-brand-light/40 border border-brand-accent/35 focus:border-brand-gold focus:ring-1 focus:ring-brand-gold rounded-md px-3 py-2 text-brand-dark focus:outline-hidden"
                       />
                     </div>
                   </div>
@@ -300,7 +299,7 @@ export default function Retrials({ language }: RetrialsProps) {
                       value={inquiryEmail}
                       onChange={(e) => setInquiryEmail(e.target.value)}
                       placeholder={t.placeholderEmail}
-                      className="w-full bg-brand-light/40 border border-brand-accent/35 focus:border-brand-gold focus:ring-1 focus:ring-brand-gold rounded-xs px-3 py-2 text-brand-dark focus:outline-hidden"
+                      className="w-full bg-brand-light/40 border border-brand-accent/35 focus:border-brand-gold focus:ring-1 focus:ring-brand-gold rounded-md px-3 py-2 text-brand-dark focus:outline-hidden"
                     />
                   </div>
 
@@ -313,7 +312,7 @@ export default function Retrials({ language }: RetrialsProps) {
                       value={inquiryCaseDetails}
                       onChange={(e) => setInquiryCaseDetails(e.target.value)}
                       placeholder={t.placeholderDesc}
-                      className="w-full bg-brand-light/40 border border-brand-accent/35 focus:border-brand-gold focus:ring-1 focus:ring-brand-gold rounded-xs px-3 py-2 text-brand-dark focus:outline-hidden font-light leading-relaxed"
+                      className="w-full bg-brand-light/40 border border-brand-accent/35 focus:border-brand-gold focus:ring-1 focus:ring-brand-gold rounded-md px-3 py-2 text-brand-dark focus:outline-hidden font-light leading-relaxed"
                     />
                   </div>
 
@@ -321,7 +320,7 @@ export default function Retrials({ language }: RetrialsProps) {
                     <button
                       type="submit"
                       id="submit-retrial-inquiry"
-                      className="w-full bg-brand-primary hover:bg-brand-medium text-brand-cream border border-brand-gold/40 hover:border-brand-gold py-3 px-5 rounded-xs text-xs font-bold uppercase tracking-widest transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer"
+                      className="w-full bg-brand-gold hover:bg-brand-gold-dark text-brand-dark border border-brand-gold-dark/20 py-3 px-5 rounded-lg text-xs font-bold uppercase tracking-widest transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer"
                     >
                       {t.btnSubmit}
                     </button>

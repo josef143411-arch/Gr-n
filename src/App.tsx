@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion } from 'motion/react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './components/Home';
@@ -7,7 +8,6 @@ import StaffSection from './components/StaffSection';
 import ArticlesSection from './components/ArticlesSection';
 import Retrials from './components/Retrials';
 import CareersSection from './components/CareersSection';
-import BookingSection from './components/BookingSection';
 import NotariusPublicus from './components/NotariusPublicus';
 import { ARTICLES } from './data';
 import { Article } from './types';
@@ -62,7 +62,7 @@ export default function App() {
       case 'about':
         return <About language={language} />;
       case 'staff':
-        return <StaffSection language={language} />;
+        return <StaffSection language={language} setActiveTab={setActiveTab} />;
       case 'articles':
         return (
           <ArticlesSection
@@ -71,6 +71,7 @@ export default function App() {
             selectedArticleId={selectedArticleId}
             setSelectedArticleId={setSelectedArticleId}
             language={language}
+            setActiveTab={setActiveTab}
           />
         );
       case 'retrials':
@@ -79,8 +80,6 @@ export default function App() {
         return <NotariusPublicus language={language} />;
       case 'careers':
         return <CareersSection language={language} />;
-      case 'booking':
-        return <BookingSection language={language} />;
       case 'contact':
         return <ContactSectionBridge language={language} />;
       default:
@@ -106,7 +105,14 @@ export default function App() {
 
       {/* Main Content Area */}
       <main className="grow" id="main-content">
-        {renderActiveView()}
+        <motion.div
+          key={activeTab}
+          initial={{ opacity: 0, y: 6 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.35, ease: 'easeOut' }}
+        >
+          {renderActiveView()}
+        </motion.div>
       </main>
 
       {/* Footer */}

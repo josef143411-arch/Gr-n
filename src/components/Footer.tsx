@@ -163,7 +163,7 @@ export default function Footer({ setActiveTab, onOpenPrivacy, onOpenCookies, lan
               </li>
               <li className="flex items-center space-x-3">
                 <Mail size={16} className="text-brand-gold shrink-0" />
-                <a href="mailto:info@hgaadvokat.se" className="hover:text-brand-gold transition-colors duration-200 break-all">
+                <a href="mailto:info@gronvallpartners.se" className="hover:text-brand-gold transition-colors duration-200 break-all">
                   {tc.email}
                 </a>
               </li>
@@ -198,7 +198,6 @@ export default function Footer({ setActiveTab, onOpenPrivacy, onOpenCookies, lan
                 <Clock size={16} className="text-brand-gold shrink-0 mt-0.5" />
                 <div>
                   <p className="font-medium text-brand-cream">{ft.weekdays}</p>
-                  <p className="text-xs text-brand-accent/60 mt-0.5">{ft.noLunchClose}</p>
                 </div>
               </li>
               <li className="text-xs text-brand-accent/60 leading-relaxed italic border-t border-brand-accent/10 pt-3">

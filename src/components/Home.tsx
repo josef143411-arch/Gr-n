@@ -46,8 +46,8 @@ export default function Home({ setActiveTab, setSelectedArticleId, language }: H
       title: language === 'sv' ? 'Brottmål' : 'Criminal Defense',
       icon: Gavel,
       description: language === 'sv' 
-        ? 'Offentlig och privat försvarare i alla typer av brottmål, med särskild expertis inom grov och organiserad brottslighet samt ekobrott. Vi åtar oss även uppdrag som målsägandebiträde, juridiskt biträde och särskild företrädare för barn, och är med från förhör tills dom vunnit laga kraft.'
-        : 'Public and private defense counsel in all types of criminal cases, with expert focus on organized and major crime. We also act as counsel for injured parties, legal representative, and special representative for children, supporting you from the initial interview until the judgment becomes final.',
+        ? 'Vi åtar oss uppdrag som offentlig och privat försvarare i alla typer av brottmål, med särskild expertis inom grov brottslighet samt ekobrott. Vi åtar oss även uppdrag som målsägandebiträde, juridiskt biträde och särskild företrädare för barn.'
+        : 'We undertake assignments as public and private defense counsel in all types of criminal cases, with special expertise in serious crime and financial crimes. We also accept appointments as victim counsel, legal counsel, and special representative for children.',
     },
     {
       id: 'family',
@@ -62,16 +62,16 @@ export default function Home({ setActiveTab, setSelectedArticleId, language }: H
       title: language === 'sv' ? 'Migrationsrätt' : 'Migration Law',
       icon: Briefcase,
       description: language === 'sv'
-        ? 'Biträde vid ansökningar om asyl, uppehållstillstånd, arbetstillstånd och medborgarskap samt i förvarsärenden, samt som offentligt biträde i utvisningsärenden.'
-        : 'Assistance with asylum applications, residence and work permits, citizenship, and detention cases, as well as public counsel in deportation proceedings.',
+        ? 'Biträde vid ansökningar om asyl, uppehålls- och arbetstillstånd och medborgarskap. Vi åtar oss även uppdrag som offentliga biträden i förvars- och utvisningsärenden.'
+        : 'Assistance with applications for asylum, residence and work permits, and citizenship. We also accept appointments as public counsel in detention and deportation cases.',
     },
     {
       id: 'social',
       title: language === 'sv' ? 'Socialrätt' : 'Social Law',
       icon: ShieldCheck,
       description: language === 'sv'
-        ? 'Biträde som offentligt biträde eller ombud, samt rådgivning i ärenden gällande tvångsvård enligt LVU, LVM, LPT och LRV.'
-        : 'Representation as public counsel or agent, and advice in compulsory care cases (LVU, LVM, LPT, LRV).',
+        ? 'Uppdrag som offentligt biträde/ombud samt rådgivning i ärenden gällande tvångsvård enligt LVU, LVM, LPT och LRV.'
+        : 'Representation as public counsel or agent, and advice in compulsory care cases under LVU, LVM, LPT, and LRV.',
     },
     {
       id: 'civil',
@@ -86,14 +86,14 @@ export default function Home({ setActiveTab, setSelectedArticleId, language }: H
       title: language === 'sv' ? 'Arvsrätt' : 'Inheritance Law',
       icon: FileText,
       description: language === 'sv'
-        ? 'Upprättande av testamenten, boutredningar, arvskiften och juridisk rådgivning vid bodelning och komplicerade arvstvister.'
-        : 'Drafting wills, estate distribution, partition of joint property, and counsel in complicated inheritance disputes.',
+        ? 'Upprättande av testamenten, bouppteckningar, arvskiften och juridisk rådgivning vid komplicerade arvstvister.'
+        : 'Drafting of wills, estate inventory, inheritance division, and legal advice in complex inheritance disputes.',
     }
   ];
 
   const handlePracticeAreaClick = () => {
-    // Scroll to contact or booking
-    setActiveTab('booking');
+    // Scroll to contact
+    setActiveTab('contact');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -211,7 +211,7 @@ export default function Home({ setActiveTab, setSelectedArticleId, language }: H
                   GRÖNVALL <span className="elegant-ampersand text-[0.95em] text-brand-gold mx-1 inline-block align-baseline transform -translate-y-[0.05em] select-none">&amp;</span> PARTNERS
                 </span>
                 <div className="h-[1.5px] bg-brand-gold/60 w-full mt-2 mb-1.5 group-hover:bg-brand-gold transition-colors duration-300" />
-                <span className="text-[10px] sm:text-xs uppercase tracking-[0.35em] text-brand-gold font-sans font-semibold text-center w-full">
+                <span className="text-[10px] sm:text-xs uppercase tracking-[0.35em] text-brand-accent font-sans font-semibold text-center w-full">
                   {language === 'sv' ? 'ADVOKATBYRÅ' : 'LAW FIRM'}
                 </span>
               </motion.div>
@@ -238,10 +238,10 @@ export default function Home({ setActiveTab, setSelectedArticleId, language }: H
               {/* Refined CTA buttons - Appears last */}
               <motion.div variants={itemVariants} className="pt-4 flex flex-col sm:flex-row gap-4 justify-center">
                 <button
-                  onClick={() => setActiveTab('booking')}
+                  onClick={() => setActiveTab('contact')}
                   className="bg-brand-gold hover:bg-brand-gold-dark text-brand-dark px-8 py-4 rounded-xs text-xs font-bold uppercase tracking-widest transition-all duration-300 shadow-md hover:shadow-lg text-center cursor-pointer flex items-center justify-center gap-2 group"
                 >
-                  {language === 'sv' ? 'Boka möte' : 'Book meeting'}
+                  {language === 'sv' ? 'Kontakta oss' : 'Contact us'}
                   <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1 text-brand-dark" />
                 </button>
                 <button
@@ -291,9 +291,9 @@ export default function Home({ setActiveTab, setSelectedArticleId, language }: H
               </p>
               <p>
                 {language === 'sv' ? (
-                  'Vi är medvetna om att behovet av juridisk hjälp ofta uppstår i svåra eller livsavgörande stunder. Därför bygger vårt arbete på att skapa en trygg relation till våra klienter, där diskretion och lyhördhet är självklara hörnstenar. Våra advokater och jurister besitter gedigen erfarenhet och processvana i domstol, vilket garanterar ett kraftfullt och väl förberett försvar.'
+                  'Vi är medvetna om att behovet av juridisk hjälp ofta uppstår i svåra eller livsavgörande stunder. Därför bygger vårt arbete på att skapa en trygg relation till våra klienter, där diskretion och lyhördhet är självklara hörnstenar. Våra advokater och jurister besitter gedigen erfarenhet och processvana i domstol, vilket garanterar ett kraftfullt, engagerat och väl förberett juridiskt biträde. Vi åtar oss uppdrag i hela Sverige.'
                 ) : (
-                  'We are aware that the need for legal assistance often arises during difficult or life-changing moments. Therefore, our work is built on establishing a secure relationship with our clients, where discretion and sensitivity are natural cornerstones. Our attorneys possess solid experience and litigation capability in court, ensuring a powerful and well-prepared defense.'
+                  'We are aware that the need for legal assistance often arises during difficult or life-changing moments. Therefore, our work is built on establishing a secure relationship with our clients, where discretion and sensitivity are natural cornerstones. Our attorneys possess solid experience and litigation capability in court, ensuring a powerful, dedicated, and well-prepared legal representation. We accept cases all over Sweden.'
                 )}
               </p>
             </motion.div>
@@ -330,8 +330,8 @@ export default function Home({ setActiveTab, setSelectedArticleId, language }: H
             <div className="w-12 h-1 bg-brand-gold mx-auto" />
             <p className="text-sm text-brand-medium font-light">
               {language === 'sv' 
-                ? 'Vi erbjuder specialiserad rådgivning och rättsligt biträde inom ett brett spektrum av lagstiftningen, alltid med högsta möjliga expertis.'
-                : 'We offer specialized counsel and legal assistance across a broad spectrum of the law, always with the highest possible expertise.'}
+                ? 'Vi erbjuder specialiserad rådgivning och rättsligt biträde inom våra olika expertisområden, alltid med högsta möjliga engagemang och juridiska precision.'
+                : 'We offer specialized counsel and legal assistance within our various areas of expertise, always with the highest possible commitment and legal precision.'}
             </p>
           </div>
 
@@ -386,7 +386,7 @@ export default function Home({ setActiveTab, setSelectedArticleId, language }: H
       <Financing setActiveTab={setActiveTab} language={language} />
 
       {/* 6. Quick Contact and Call to action */}
-      <section className="bg-brand-light py-20 border-t border-brand-accent/20" id="home-cta-consultation">
+      <section className="bg-brand-light pt-10 pb-20 border-t border-brand-accent/20" id="home-cta-consultation">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
           <h2 className="text-3xl sm:text-4xl font-normal text-brand-primary tracking-tight">
             {language === 'sv' ? 'Låt oss diskutera ditt ärende – full diskretion utlovas.' : 'Let us discuss your case – full discretion guaranteed.'}
@@ -398,16 +398,11 @@ export default function Home({ setActiveTab, setSelectedArticleId, language }: H
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <button
-              onClick={() => setActiveTab('booking')}
-              className="bg-brand-primary hover:bg-brand-medium text-brand-cream border border-brand-gold/40 px-8 py-4 rounded-lg text-xs font-bold uppercase tracking-widest transition-all duration-300 shadow-md cursor-pointer"
-            >
-              {language === 'sv' ? 'Boka möte online' : 'Book meeting online'}
-            </button>
-            <button
               onClick={() => setActiveTab('contact')}
-              className="bg-transparent hover:bg-brand-primary/5 text-brand-primary border border-brand-primary/40 hover:border-brand-primary px-8 py-4 rounded-lg text-xs font-bold uppercase tracking-widest transition-all duration-300 cursor-pointer"
+              className="bg-brand-gold hover:bg-brand-gold-dark text-brand-dark px-8 py-4 rounded-lg text-xs font-bold uppercase tracking-widest transition-all duration-300 shadow-md hover:shadow-lg cursor-pointer flex items-center justify-center gap-2 group"
             >
-              {language === 'sv' ? 'Kontakta oss via formulär' : 'Contact us via form'}
+              {language === 'sv' ? 'Kontakta oss' : 'Contact us'}
+              <ArrowRight size={14} className="transition-transform duration-300 group-hover:translate-x-1 text-brand-dark" />
             </button>
           </div>
         </div>

@@ -15,7 +15,7 @@ export const TRANSLATIONS = {
     common: {
       address: 'Besöks- och postadress: Kungsholmstorg 1, 112 21 Stockholm',
       phone: '08-20 60 20',
-      email: 'info@hgaadvokat.se',
+      email: 'info@gronvallpartners.se',
       readMore: 'Läs mer',
       send: 'Skicka',
       close: 'Stäng',
@@ -40,7 +40,7 @@ export const TRANSLATIONS = {
       areasTitle: 'Våra Specialistområden',
       areasSubtitle: 'VAD VI GÖR',
       areaCriminal: 'Brottmål',
-      areaCriminalDesc: 'Offentlig och privat försvarare i alla typer av brottmål, med särskild expertis inom grov och organiserad brottslighet samt ekobrott.',
+      areaCriminalDesc: 'Vi åtar oss uppdrag som offentlig och privat försvarare i alla typer av brottmål, med särskild expertis inom grov brottslighet samt ekobrott. Vi åtar oss även uppdrag som målsägandebiträde, juridiskt biträde och särskild företrädare för barn.',
       areaFamily: 'Familjerätt',
       areaFamilyDesc: 'Kvalificerad rådgivning och biträde som ombud i komplicerade vårdnadstvister, boende- och umgängesfrågor samt ekonomisk familjerätt.',
       areaFinancial: 'Ekonomisk brottslighet',
@@ -103,37 +103,37 @@ export const TRANSLATIONS = {
       bios: {
         'staff-1': {
           title: 'Advokat / Delägare',
-          bio: 'Robin är specialiserad på brottmål och arbetar främst som försvarsadvokat, med särskilt fokus på ekobrottmål och komplexa ärenden rörande organiserad brottslighet. Han besitter gedigen erfarenhet av grova brottmål och uppträder regelbundet i domstol i denna typ av krävande rättsprocesser. Robin åtar sig uppdrag som offentlig och privat försvarare, målsägandebiträde samt särskild företrädare för barn.',
+          bio: 'Robin är specialiserad på brottmål och arbetar främst som försvarare, med särskilt fokus på ekobrottmål och komplexa ärenden rörande organiserad brottslighet. Han besitter gedigen erfarenhet av grova brottmål och uppträder regelbundet i domstol i denna typ av krävande rättsprocesser. Robin åtar sig uppdrag som offentlig och privat försvarare, som målsägandebiträde samt särskild företrädare för barn.',
           specialties: ['Brottmål (Offentlig/Privat försvarare)', 'Organiserad brottslighet', 'Grov brottslighet', 'Ekonomisk brottslighet', 'Målsägandebiträde', 'Särskild företrädare för barn'],
           education: ['Juristexamen (LL.M.)', 'Ledamot av Sveriges advokatsamfund'],
           languages: ['Svenska (Modersmål)', 'Engelska (Flytande)']
         },
         'staff-josef': {
           title: 'Advokat / Delägare',
-          bio: 'Josef är advokat med omfattande erfarenhet av kvalificerade brottmål samt tvångsmål (LVU, LPT, LVM). Han har företrätt klienter i flera medialt uppmärksammade mål och besitter gedigen erfarenhet av såväl eko-mål som mål rörande organiserad brottslighet. Med ett strategiskt, engagerat och rättssäkert arbetssätt arbetar han målmedvetet för att tillvarata klientens intressen och uppnå bästa möjliga resultat i varje enskilt ärende.',
+          bio: 'Josef är advokat med omfattande erfarenhet av kvalificerade och komplexa brottmål. Han har omfattande erfarenhet av att företräda klienter i medialt uppmärksammade mål samt mål rörande organiserad brottslighet och ekonomisk brottslighet. Josef åtar sig uppdrag som offentlig och privat försvarare samt som målsägandebiträde och särskild företrädare för barn.',
           specialties: ['Brottmål (Offentlig/Privat försvarare)', 'Tvångsmål (LVU, LPT, LVM)', 'Organiserad brottslighet', 'Grov brottslighet', 'Målsägandebiträde', 'Särskild företrädare för barn', 'Ekonomisk brottslighet'],
           education: ['Juristexamen (LL.M.)', 'Kandidatexamen i kriminologi', 'Ledamot av Sveriges advokatsamfund'],
           languages: ['Svenska (Modersmål)', 'Engelska (Flytande)', 'Arabiska (Flytande)']
         },
         'staff-katja': {
           title: 'Advokat / Delägare',
-          bio: 'Katja är advokat med omfattande erfarenhet av kvalificerade brottmål samt tvångsmål (LVU, LPT, LVM). Hon har företrätt klienter i ett stort antal mål avseende grov brottslighet, däribland mål rörande organiserad brottslighet. Katja är känd för sitt stora engagemang, sin uthållighet och sin noggrannhet. Hon ger aldrig upp utan granskar metodiskt varje detalj i utredningen för att säkerställa att klientens rättigheter tas till vara på bästa möjliga sätt.',
+          bio: 'Katja är advokat med omfattande erfarenhet av kvalificerade brottmål samt tvångsmål (LVU, LPT, LVM). Hon har företrätt klienter i ett stort antal mål avseende grov brottslighet, däribland mål rörande organiserad brottslighet.',
           specialties: ['Brottmål (Offentlig/Privat försvarare)', 'Tvångsmål (LVU, LPT, LVM)', 'Organiserad brottslighet', 'Grov brottslighet', 'Målsägandebiträde', 'Särskild företrädare för barn'],
           education: ['Juristexamen (LL.M.)', 'Ledamot av Sveriges advokatsamfund'],
           languages: ['Svenska (Modersmål)', 'Engelska (Flytande)']
         },
         'staff-kevin': {
           title: 'Advokat',
-          bio: 'Kevin är advokat specialiserad på brottmål, tvångsmål (LVU, LPT, LVM) och familjerätt. Han åtar sig uppdrag som offentlig och privat försvarare, samt som målsägandebiträde och särskild företrädare för barn. Kevin har även gedigen erfarenhet av grova brottmål, organiserad brottslighet samt känsliga vårdnadstvister och familjerättsliga processer. Med ett djupt personligt engagemang och strategisk skärpa kämpar han alltid hängivet för att säkra bästa möjliga utfall för sina klienter.',
+          bio: 'Kevin är advokat specialiserad på brottmål, tvångsmål (LVU, LPT, LVM) och familjerätt. Han åtar sig uppdrag som offentlig och privat försvarare, samt som målsägandebiträde och särskild företrädare för barn.',
           specialties: ['Brottmål (Offentlig/Privat försvarare)', 'Tvångsmål (LVU, LPT, LVM)', 'Organiserad brottslighet', 'Grov brottslighet', 'Målsägandebiträde', 'Särskild företrädare för barn', 'Familjerätt (Vårdnad, boende, umgänge)'],
           education: ['Juristexamen (LL.M.)', 'Ledamot av Sveriges advokatsamfund'],
           languages: ['Svenska (Modersmål)', 'Engelska (Flytande)', 'Bosniska (Flytande)']
         },
         'staff-rosanna': {
           title: 'Paralegal',
-          bio: 'Rosanna är paralegal hos oss och det är oftast henne du först kommer i kontakt med när du skickar en förfrågan. Hon ansvarar för vårt inledande klientmottagande, koordinerar ärenden och ger administrativt och praktiskt stöd till våra advokater.',
+          bio: 'Rosanna är paralegal hos oss och det är oftast henne du kommer i kontakt med när du först kommer i kontakt med oss. Hon ansvarar för vårt inledande klientmottagande, koordinerar ärenden och ger administrativt och praktiskt stöd till våra advokater.',
           specialties: ['Klientmottagande', 'Ärendekoordinering', 'Administrativt stöd'],
-          education: ['Paralegal-utbildning', 'Certifierad administratör'],
+          education: ['Paralegal-utbildning'],
           languages: ['Svenska (Modersmål)', 'Engelska (Flytande)']
         }
       }
@@ -141,7 +141,7 @@ export const TRANSLATIONS = {
     careers: {
       title: 'Karriär hos oss',
       subtitle: 'BLI EN DEL AV GRÖNVALL & PARTNERS',
-      introText1: 'Vi söker ständigt efter exceptionella talanger, erfarna advokater och engagerade biträdande jurister som delar vår vision om ovillkorligt engagemang och juridisk spetskompetens.',
+      introText1: 'Vi söker ständigt efter exceptionella talanger och erfarna advokater som delar vår vision om ovillkorligt engagemang och juridisk spetskompetens.',
       introText2: 'Hos oss får du arbeta i en modern, högpresterande men samtidigt varm och samarbetsinriktad miljö. Vi värnar om laganda, personlig utveckling och balans i livet.',
       openPositions: 'Lediga tjänster',
       requirements: 'Krav',
@@ -160,13 +160,8 @@ export const TRANSLATIONS = {
       positions: {
         'pos-1': {
           title: 'Advokat',
-          department: 'Brottmål, Tvistemål & Humanjuridik',
-          desc: 'Vi söker dig som är ledamot av Sveriges advokatsamfund och vill bli en del av Grönvall & Partners. Vi välkomnar ansökningar från advokater med olika bakgrund och inriktningar – oavsett om din expertis ligger inom brottmål, tvistemål, familjerätt eller andra humanjuridiska områden. Vi erbjuder en samarbetsinriktad miljö med goda utvecklingsmöjligheter och stort fokus på hög kvalitet och balans i arbetslivet.'
-        },
-        'pos-2': {
-          title: 'Biträdande jurist',
-          department: 'Brottmål, Tvistemål & Humanjuridik',
-          desc: 'Vi söker en engagerad och driven biträdande jurist som vill utvecklas hos oss. Tjänsten är öppen för dig som vill arbeta brett inom våra verksamhetsområden, primärt brottmål, tvistemål och familjerätt. Du kommer att arbeta under handledning av erfarna advokater med målet att bygga upp din processvana och på sikt avlägga advokatexamen.'
+          department: 'Brottmål, Affärsjuridik & Allmän Juridik',
+          desc: 'Vi söker dig som är ledamot av Sveriges advokatsamfund och vill bli en del av Grönvall & Partners. Vi välkomnar ansökningar från advokater med olika bakgrund och inriktningar – oavsett om din expertis ligger inom brottmål, affärsjuridik eller andra rättsområden. Vi erbjuder en samarbetsinriktad miljö med goda utvecklingsmöjligheter och stort fokus på hög kvalitet och balans i arbetslivet.'
         },
         'pos-3': {
           title: 'Sommarpraktikant / Uppsatspraktikant 2027',
@@ -312,7 +307,7 @@ export const TRANSLATIONS = {
     common: {
       address: 'Visiting & Mailing Address: Kungsholmstorg 1, 112 21 Stockholm',
       phone: '+46 8-20 60 20',
-      email: 'info@hgaadvokat.se',
+      email: 'info@gronvallpartners.se',
       readMore: 'Read More',
       send: 'Send',
       close: 'Close',
@@ -337,7 +332,7 @@ export const TRANSLATIONS = {
       areasTitle: 'Our Areas of Practice',
       areasSubtitle: 'WHAT WE DO',
       areaCriminal: 'Criminal Defense',
-      areaCriminalDesc: 'Public and private defense counsel in all types of criminal cases, with expert focus on organized crime, major offences, and corporate crimes.',
+      areaCriminalDesc: 'We undertake assignments as public and private defense counsel in all types of criminal cases, with special expertise in serious crime and financial crimes. We also accept appointments as victim counsel, legal counsel, and special representative for children.',
       areaFamily: 'Family Law',
       areaFamilyDesc: 'Top-tier representation and counsel in complicated custody, residency, and visitation disputes, as well as marital property division.',
       areaFinancial: 'Financial Crimes',
@@ -399,38 +394,38 @@ export const TRANSLATIONS = {
       paralegal: 'Paralegal',
       bios: {
         'staff-1': {
-          title: 'Advokat / Partner',
-          bio: 'Robin Grönvall specializes in criminal law and works primarily as a defense counsel, with a particular focus on financial crimes and complex cases involving organized crime. He has extensive experience in major felony trials and regularly appears in court in demanding legal proceedings. Robin accepts appointments as public and private defense counsel, counsel for injured parties, and special representative for children.',
-          specialties: ['Criminal Law (Public/Private defense)', 'Organized Crime', 'Major Felonies', 'Financial Crimes', 'Counsel for Injured Parties', 'Special Representative for Children'],
+          title: 'Attorney / Partner',
+          bio: 'Robin works with criminal defense. He possesses solid experience of media-profiled trials, and regularly appears in court as defense counsel in demanding criminal cases. Robin accepts appointments as public and private defense counsel, as well as counsel for injured parties.',
+          specialties: ['Criminal Defense (Public/Private defense)', 'Organized Crime', 'Major Felonies', 'High-profile Cases', 'Counsel for Injured Parties'],
           education: ['Master of Laws (LL.M.)', 'Member of the Swedish Bar Association'],
           languages: ['Swedish (Native)', 'English (Fluent)']
         },
         'staff-josef': {
-          title: 'Advokat / Partner',
-          bio: 'Josef Ben Ali is an attorney with extensive experience in high-profile criminal trials as well as compulsory care cases (LVU, LPT, LVM). He has represented clients in several media-sensationalized cases and possesses deep expertise in both white-collar crime and organized crime prosecution defense. With a strategic, committed, and legally robust working method, he works tirelessly to safeguard his clients\' interests and achieve optimal results.',
-          specialties: ['Criminal Law (Public/Private defense)', 'Compulsory Care (LVU, LPT, LVM)', 'Organized Crime', 'Major Felonies', 'Counsel for Injured Parties', 'Special Representative for Children', 'Financial Crimes'],
+          title: 'Attorney / Partner',
+          bio: 'Josef is an attorney with extensive experience in qualified and complex criminal cases. He has extensive experience representing clients in high-profile and media-reported cases as well as cases concerning organized crime and white-collar/financial crime. Josef accepts appointments as public and private defense counsel, as well as counsel for injured parties and special representative for children.',
+          specialties: ['Criminal Defense (Public/Private)', 'Compulsory Care (LVU, LPT, LVM)', 'White-Collar / Financial Crimes (Defense)', 'Organized Crime', 'Major Offences', 'Counsel for Injured Parties', 'Special Representative for Children', 'Custody Disputes & Family Law', 'Civil Litigation'],
           education: ['Master of Laws (LL.M.)', 'Bachelor of Science in Criminology', 'Member of the Swedish Bar Association'],
           languages: ['Swedish (Native)', 'English (Fluent)', 'Arabic (Fluent)']
         },
         'staff-katja': {
-          title: 'Advokat / Partner',
-          bio: 'Katja Jofred is an attorney with extensive experience in major felony trials as well as compulsory care cases (LVU, LPT, LVM). She has represented clients in a wide range of cases involving serious crimes, including organized crime structures. Katja is renowned for her deep commitment, resilience, and attention to detail. She never yields, methodically reviewing every element of the investigation to guarantee her clients\' rights are fully upheld.',
-          specialties: ['Criminal Law (Public/Private defense)', 'Compulsory Care (LVU, LPT, LVM)', 'Organized Crime', 'Major Felonies', 'Counsel for Injured Parties', 'Special Representative for Children'],
+          title: 'Attorney / Partner',
+          bio: 'Katja is an attorney with extensive experience in qualified criminal cases as well as compulsory care and forensic psychiatric care cases under LVU, LPT, LVM, and LRV. She regularly represents clients in high-profile cases as well as cases concerning serious and organized crime and financial crimes.\n\nKatja also regularly accepts appointments as counsel for injured parties and as a special representative for children.',
+          specialties: ['Criminal Defense (Public/Private)', 'Compulsory Care (LVU, LPT, LVM, LRV)', 'White-Collar / Financial Crimes (Defense)', 'Organized Crime', 'Major Offences', 'High-profile Cases', 'Counsel for Injured Parties', 'Special Representative for Children'],
           education: ['Master of Laws (LL.M.)', 'Member of the Swedish Bar Association'],
           languages: ['Swedish (Native)', 'English (Fluent)']
         },
         'staff-kevin': {
-          title: 'Advokat / Attorney',
-          bio: 'Kevin Sarajlija is an attorney specializing in criminal defense, compulsory care cases (LVU, LPT, LVM), and family law. He accepts appointments as public and private defense counsel, as well as counsel for injured parties and special representative for children. Kevin has solid experience in major criminal cases, organized crime, and sensitive custody and family court proceedings. Guided by a deep personal commitment and strategic edge, he fights passionately to secure the best results for his clients.',
-          specialties: ['Criminal Law (Public/Private defense)', 'Compulsory Care (LVU, LPT, LVM)', 'Organized Crime', 'Major Felonies', 'Counsel for Injured Parties', 'Special Representative for Children', 'Family Law (Custody, residency, visitation)'],
+          title: 'Attorney / Notary Public',
+          bio: 'Kevin is an attorney and Notary Public, specializing in criminal defense, compulsory care cases (LVU, LPT, LVM), and family law. He accepts appointments as public and private defense counsel, as well as counsel for injured parties and special representative for children.',
+          specialties: ['Criminal Defense (Public/Private)', 'Notary Public', 'Compulsory Care (LVU, LPT, LVM)', 'Organized Crime', 'Counsel for Injured Parties', 'Special Representative for Children', 'Family Law (Custody, residence, visitation)'],
           education: ['Master of Laws (LL.M.)', 'Member of the Swedish Bar Association'],
           languages: ['Swedish (Native)', 'English (Fluent)', 'Bosnian (Fluent)']
         },
         'staff-rosanna': {
           title: 'Paralegal',
-          bio: 'Rosanna is our paralegal and is usually the first person you will speak with when contacting our firm. She handles our initial client intake, coordinates cases, and provides vital administrative and practical support to our attorneys.',
-          specialties: ['Client Intake', 'Case Coordination', 'Administrative Support'],
-          education: ['Paralegal Degree', 'Certified Administrator'],
+          bio: 'Rosanna is our paralegal and is usually the first person you come into contact with when submitting an inquiry. She is responsible for our initial client reception, coordinates cases, and provides administrative and practical support to our attorneys.',
+          specialties: ['Client Reception', 'Case Coordination', 'Administrative Support'],
+          education: ['Paralegal Diploma'],
           languages: ['Swedish (Native)', 'English (Fluent)']
         }
       }
@@ -438,7 +433,7 @@ export const TRANSLATIONS = {
     careers: {
       title: 'Careers with Us',
       subtitle: 'JOIN GRÖNVALL & PARTNERS',
-      introText1: 'We are constantly seeking exceptional talents, experienced attorneys, and driven junior associates who share our vision of uncompromising commitment and top-tier legal expertise.',
+      introText1: 'We are constantly seeking exceptional talents and experienced attorneys who share our vision of uncompromising commitment and top-tier legal expertise.',
       introText2: 'At our firm, you will work in a modern, high-performance yet warm and collaborative environment. We value team spirit, continuous personal development, and a healthy work-life balance.',
       openPositions: 'Open Positions',
       requirements: 'Requirements',
@@ -457,13 +452,8 @@ export const TRANSLATIONS = {
       positions: {
         'pos-1': {
           title: 'Attorney at Law (Advokat)',
-          department: 'Criminal Defense, Civil & Family Law',
-          desc: 'We are looking for a member of the Swedish Bar Association to join Grönvall & Partners. We welcome applications from attorneys with diverse backgrounds – whether your focus is criminal defense, civil litigation, family law, or other human rights fields. We offer a highly collaborative environment with great development prospects and a solid focus on high legal quality and work-life balance.'
-        },
-        'pos-2': {
-          title: 'Junior Associate (Biträdande jurist)',
-          department: 'Criminal Defense, Civil & Family Law',
-          desc: 'We are seeking an engaged and driven junior associate eager to develop alongside us. The role is open to candidates wanting to work broadly across our practice areas, primarily criminal law, litigation, and family disputes. You will work under the mentorship of senior attorneys, building court experience with the goal of passing the bar exam.'
+          department: 'Criminal Defense, Business Law & General Practice',
+          desc: 'We are looking for a member of the Swedish Bar Association to join Grönvall & Partners. We welcome applications from attorneys with diverse backgrounds and specializations – whether your focus is criminal defense, business law, or other legal practice fields. We offer a highly collaborative environment with great development prospects and a solid focus on high legal quality and work-life balance.'
         },
         'pos-3': {
           title: 'Summer Intern / Thesis Intern 2027',

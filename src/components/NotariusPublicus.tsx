@@ -12,7 +12,7 @@ const NOTARIUS_TRANSLATIONS = {
     subtitle: 'Vi erbjuder fullständiga tjänster inom Notarius Publicus. Vi hjälper dig att snabbt och säkert bestyrka underskrifter, kopior, fullmakter samt utfärda Apostille-stämpel för internationellt bruk.',
     introTitle: 'Officiell legitimering och bestyrkande',
     introP1: 'Notarius Publicus är en oberoende person som är förordnad av Länsstyrelsen för att övervaka, intyga och bekräfta giltigheten i olika juridiska handlingar, namnteckningar och behörigheter. Detta görs ofta för att dokumenten ska vara juridiskt giltiga i utlandet eller hos utländska myndigheter, domstolar och banker.',
-    introP2: 'Grönvall & Partners har bred erfarenhet av Notarius Publicus-ärenden. Vi ser till att hanteringen sker skyndsamt och korrekt enligt gällande lagstiftning och internationella traktat, så att dina dokument accepteras utan anmärkning över hela världen.',
+    introP2: 'Grönvall & Partners har bred erfarenhet av Notarius Publicus-ärenden. Vi ser till att hanteringen sker skyndsamt och korrekt, så att dina dokument accepteras utan anmärkning över hela världen.',
     sidebarTitle: 'Våra Tjänster',
     sidebarItem1: 'Legitimering av namnteckningar: Vi intygar att rätt person har undertecknat en handling (måste signeras på plats framför oss).',
     sidebarItem2: 'Bestyrkande av kopior: Vi intygar med stämpel och underskrift att en kopia stämmer överens med originalet.',
@@ -73,7 +73,7 @@ const NOTARIUS_TRANSLATIONS = {
     subtitle: 'We offer comprehensive Notary Public services. We help you quickly and securely certify signatures, copies, powers of attorney, and issue Apostille stamps for international use.',
     introTitle: 'Official Authentication and Verification',
     introP1: 'A Notary Public (Notarius Publicus) is an independent official appointed by the County Administrative Board to monitor, certify, and confirm the authenticity and validity of various legal documents, signatures, and authorities. This is typically required for documents to be legally recognized abroad by foreign authorities, courts, and banks.',
-    introP2: 'Grönvall & Partners has extensive experience in Notary Public matters. We ensure that your documents are handled swiftly and correctly in accordance with applicable laws and international treaties, ensuring they are accepted without hesitation globally.',
+    introP2: 'Grönvall & Partners has extensive experience in Notary Public matters. We ensure that your documents are handled swiftly and correctly, ensuring they are accepted without hesitation globally.',
     sidebarTitle: 'Our Services',
     sidebarItem1: 'Certification of signatures: We certify that the correct individual has signed a document (must be signed on-site in front of us).',
     sidebarItem2: 'Certification of copies: We verify and stamp copies to certify that they match the original document in its entirety.',
@@ -141,6 +141,13 @@ export default function NotariusPublicus({ language }: NotariusPublicusProps) {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const [checkedPhases, setCheckedPhases] = useState<number[]>([]);
+
+  const togglePhase = (idx: number) => {
+    setCheckedPhases(prev => 
+      prev.includes(idx) ? prev.filter(i => i !== idx) : [...prev, idx]
+    );
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -234,22 +241,56 @@ export default function NotariusPublicus({ language }: NotariusPublicusProps) {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {t.phases.map((phase, idx) => (
-              <div key={idx} className="p-6 bg-brand-primary border border-brand-gold/20 rounded-xl hover:border-brand-gold/40 hover:shadow-lg transition-all duration-300 relative group">
-                <span className="font-cinzel text-2xl font-light text-brand-gold/40 group-hover:text-brand-gold absolute top-4 right-5 transition-colors duration-300">
-                  {phase.num}
-                </span>
-                <div className="space-y-3 mt-4">
-                  <h3 className="font-cinzel text-sm font-semibold text-brand-gold tracking-wide">
-                    {phase.title}
-                  </h3>
-                  <p className="text-xs text-brand-cream/90 font-light leading-relaxed">
-                    {phase.description}
-                  </p>
+            {t.phases.map((phase, idx) => {
+              const isChecked = checkedPhases.includes(idx);
+              return (
+                <div 
+                  key={idx} 
+                  onClick={() => togglePhase(idx)}
+                  className={`p-6 rounded-xl border transition-all duration-300 relative group cursor-pointer ${
+                    isChecked 
+                      ? 'bg-brand-primary border-brand-gold shadow-xl scale-[1.01] ring-1 ring-brand-gold/30' 
+                      : 'bg-brand-primary border-brand-gold/20 hover:border-brand-gold/40 hover:shadow-lg'
+                  }`}
+                >
+                  <div className="absolute top-4 right-5 flex items-center space-x-2">
+                    {isChecked ? (
+                      <span className="text-[10px] bg-emerald-500/10 text-emerald-400 font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full border border-emerald-500/20 animate-fade-in flex items-center space-x-1">
+                        <span>✓</span>
+                        <span>{language === 'sv' ? 'Klar' : 'Done'}</span>
+                      </span>
+                    ) : (
+                      <span className="font-cinzel text-2xl font-light text-brand-gold/40 group-hover:text-brand-gold transition-colors duration-300">
+                        {phase.num}
+                      </span>
+                    )}
+                  </div>
+                  <div className="space-y-3 mt-4">
+                    <h3 className="font-cinzel text-sm font-semibold text-brand-gold tracking-wide flex items-center justify-between">
+                      <span>{phase.title}</span>
+                    </h3>
+                    <p className={`text-xs font-light leading-relaxed transition-all duration-300 ${
+                      isChecked ? 'text-brand-cream/60 line-through decoration-brand-gold/35' : 'text-brand-cream/90'
+                    }`}>
+                      {phase.description}
+                    </p>
+                  </div>
+                  <div className="mt-3 pt-2 border-t border-brand-cream/5 text-[10px] text-brand-gold/50 flex justify-between items-center opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span>{isChecked ? (language === 'sv' ? 'Avmarkera' : 'Uncheck') : (language === 'sv' ? 'Klicka för att bocka av' : 'Click to check off')}</span>
+                    <span>{isChecked ? '↺' : '✓'}</span>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
+
+          {/* Success Banner when all 4 are checked! */}
+          {checkedPhases.length === t.phases.length && (
+            <div className="mt-8 p-4 bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 rounded-xl text-center text-xs sm:text-sm font-semibold tracking-wide animate-fade-in flex items-center justify-center space-x-2 shadow-md">
+              <span>🎉</span>
+              <span>{language === 'sv' ? 'Du är redo för ditt besök! Fyll i formuläret nedan för att boka din tid.' : 'You are fully prepared for your visit! Complete the form below to book your appointment.'}</span>
+            </div>
+          )}
         </div>
 
         {/* Interactive Consultation Form */}
@@ -269,7 +310,7 @@ export default function NotariusPublicus({ language }: NotariusPublicusProps) {
                 <div className="text-xs text-brand-medium/70 font-light space-y-2 pt-2">
                   <p>📍 Kungsholmstorg 1, 112 21 Stockholm</p>
                   <p>📞 08-20 60 20</p>
-                  <p>✉️ info@hgaadvokat.se</p>
+                  <p>✉️ info@gronvallpartners.se</p>
                 </div>
               </div>
 
@@ -364,10 +405,10 @@ export default function NotariusPublicus({ language }: NotariusPublicusProps) {
                   <button
                     type="submit"
                     id="np-submit-btn"
-                    className="w-full sm:w-auto bg-brand-primary hover:bg-brand-medium text-brand-cream border border-brand-gold/40 hover:border-brand-gold px-8 py-3 rounded-md text-xs font-semibold uppercase tracking-widest transition-all duration-300 shadow-xs hover:shadow-md cursor-pointer flex items-center justify-center space-x-2"
+                    className="w-full sm:w-auto bg-brand-gold hover:bg-brand-gold-dark text-brand-dark border border-brand-gold-dark/20 px-8 py-3 rounded-md text-xs font-semibold uppercase tracking-widest transition-all duration-300 shadow-xs hover:shadow-md cursor-pointer flex items-center justify-center space-x-2"
                   >
                     <span>{t.btnSubmit}</span>
-                    <ArrowRight size={14} className="text-brand-gold" />
+                    <ArrowRight size={14} className="text-brand-dark" />
                   </button>
                 </form>
               </div>

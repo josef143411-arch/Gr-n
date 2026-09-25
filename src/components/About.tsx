@@ -1,6 +1,6 @@
 import React from 'react';
 import { Scale, EyeOff, Shield, HeartHandshake, Award, FileCheck } from 'lucide-react';
-import stockholmHero from '../assets/images/stockholm_real_photo_1789566845719.jpg';
+import stockholmHero from '../assets/images/stockholm_city_hall_about_1790115439773.jpg';
 
 interface AboutProps {
   language: 'sv' | 'en';
@@ -12,7 +12,7 @@ const ABOUT_TRANSLATIONS = {
     title: 'Grönvall & Partners',
     welcomeText: 'Välkommen till Grönvall & Partners. Vi företräder klienter i hela landet med utgångspunkt från vårt huvudkontor i Stockholm.',
     historyTitle: 'Vår historia',
-    historyP1: 'Grönvall & Partners har sina rötter i Lagerling & Hansson Advokatbyrå, som grundades 2004 av advokaterna Johan Hansson och Björn Lagerling. Sedan starten har byrån vuxit till en väletablerad verksamhet med ett starkt renommé inom framför allt brottmål, samtidigt som den även erbjuder kvalificerad juridisk rådgivning inom bland annat familjerätt, arvsrätt, migrationsrätt och socialrätt.',
+    historyP1: 'Grönvall & Partners har sina rötter i Lagerling & Hansson Advokatbyrå, som grundades 2004 av advokaterna Johan Hansson och Björn Lagerling. Sedan starten har byrån vuxit till en väletablerad verksamhet med ett starkt renommé inom framför allt brottmål, samtidigt som byrån även erbjuder kvalificerad juridisk rådgivning inom bland annat familjerätt, arvsrätt, migrationsrätt och socialrätt.',
     historyP2: 'Under mer än två decennier har byrån byggt sin verksamhet på hög juridisk kompetens, personligt engagemang och ett nära samarbete med sina klienter. Namnbytet till Grönvall & Partners markerar ett nytt kapitel i byråns utveckling – med samma värderingar, samma kvalitet och samma ambition att erbjuda förstklassig juridisk rådgivning och ett engagerat biträde i varje uppdrag.',
     valuesTitle: 'Våra Värderingar',
     valuesSub: 'Vår etiska kompass styr varje beslut vi tar och varje åtgärd vi vidtar för att tillvarata din rätt.',
@@ -23,7 +23,7 @@ const ABOUT_TRANSLATIONS = {
     value3Title: 'Oberoende och lojalitet',
     value3Desc: 'Vi agerar i alla lägen med fullständigt oberoende och absolut lojalitet mot vår klient. Vi tillvaratar dina intressen med högsta professionalitet, uthållighet och beslutsamhet.',
     value4Title: 'Mänskligt engagemang',
-    value4Desc: 'Bakom varje akt finns en människa eller en verksamhet i behov av genuint stöd. Vi lyssnar aktivt och anpassar strategin efter dina unika behov.',
+    value4Desc: 'Bakom varje ärende finns en människa eller en verksamhet i behov av genuint stöd. Vi lyssnar aktivt och anpassar strategin efter dina unika behov.',
     methodTitle: 'Vår Process i 4 Steg',
     step1Title: 'Inledande Konsultation',
     step1Desc: 'Vi gör en första sekretessbelagd analys av ditt ärende och dina behov.',
@@ -131,29 +131,20 @@ export default function About({ language }: AboutProps) {
         </div>
 
         {/* 1. Vår Historia */}
-        <section className="max-w-3xl space-y-6" id="history-section">
-          <h2 className="text-2xl sm:text-3xl font-normal text-brand-primary tracking-tight">
+        <section className="max-w-3xl mx-auto space-y-6" id="history-section">
+          <h2 className="text-2xl sm:text-3xl font-normal text-brand-primary tracking-tight text-center md:text-left">
             {t.historyTitle}
           </h2>
-          <p className="text-sm sm:text-base text-brand-medium font-light leading-relaxed">
+          <p className="text-sm sm:text-base text-brand-medium font-light leading-relaxed text-left">
             {t.historyP1}
           </p>
-          <p className="text-sm sm:text-base text-brand-medium font-light leading-relaxed">
+          <p className="text-sm sm:text-base text-brand-medium font-light leading-relaxed text-left">
             {t.historyP2}
           </p>
         </section>
 
         {/* 2. Vision & Värderingar */}
         <section className="space-y-12" id="values-section">
-          <div className="text-center space-y-3">
-            <h2 className="text-2xl sm:text-3xl font-normal text-brand-primary tracking-tight">
-              {t.valuesTitle}
-            </h2>
-            <p className="text-sm text-brand-medium/70 font-light max-w-xl mx-auto">
-              {t.valuesSub}
-            </p>
-          </div>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             {values.map((val, idx) => {
               const IconComponent = val.icon;
@@ -165,7 +156,7 @@ export default function About({ language }: AboutProps) {
                   <h3 className="font-cinzel text-base font-semibold text-brand-gold">
                     {val.title}
                   </h3>
-                  <p className="text-sm text-brand-cream/95 font-light leading-relaxed">
+                  <p className="text-sm text-brand-cream/95 font-light leading-relaxed text-left">
                     {val.description}
                   </p>
                 </div>
@@ -175,11 +166,11 @@ export default function About({ language }: AboutProps) {
         </section>
 
         {/* 3. Vårt Arbetssätt */}
-        <section className="max-w-3xl space-y-6" id="working-method-section">
-          <h2 className="text-2xl sm:text-3xl font-normal text-brand-primary tracking-tight">
+        <section className="max-w-3xl mx-auto space-y-6" id="working-method-section">
+          <h2 className="text-2xl sm:text-3xl font-normal text-brand-primary tracking-tight text-center md:text-left">
             {t.approachTitle}
           </h2>
-          <div className="space-y-6 text-sm sm:text-base text-brand-medium font-light leading-relaxed">
+          <div className="space-y-6 text-sm sm:text-base text-brand-medium font-light leading-relaxed text-left">
             <p>
               {t.approachP1}
             </p>

@@ -10,7 +10,7 @@ const FINANCING_TRANSLATIONS = {
   sv: {
     kicker: 'Ekonomisk trygghet i ditt ärende',
     title: 'Finansiering & Rättshjälp',
-    intro: 'Vi hjälper dig att kartlägga dina möjligheter till rättsskydd genom dina försäkringar eller rättshjälp.',
+    intro: 'Vi hjälper dig att identifiera dina möjligheter till rättsskydd genom dina försäkringar eller rättshjälp.',
     rSkyddTitle: 'Rättsskydd',
     rSkyddSub: 'Försäkringsskydd',
     rSkyddDesc: 'I de allra flesta hemförsäkringar, villahemförsäkringar och företagsförsäkringar ingår ett så kallat rättsskydd. Detta rättsskydd kan användas för att täcka dina kostnader för ett juridiskt ombud om du hamnar i en tvist (till exempel rörande vårdnad, köp- eller avtalsrätt).',
@@ -57,7 +57,7 @@ export default function Financing({ setActiveTab, language }: FinancingProps) {
   const f = FINANCING_TRANSLATIONS[language];
 
   return (
-    <div className="py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-brand-cream animate-fade-in" id="financing-section">
+    <div className="pt-12 md:pt-20 pb-4 px-4 sm:px-6 lg:px-8 bg-brand-cream animate-fade-in" id="financing-section">
       <div className="max-w-7xl mx-auto">
         {/* Header Block */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -74,7 +74,7 @@ export default function Financing({ setActiveTab, language }: FinancingProps) {
         </div>
 
         {/* Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch mb-8">
           
           {/* Rättsskydd Card */}
           <div className="bg-white p-8 rounded-xl border border-brand-accent/20 shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between">
@@ -146,28 +146,7 @@ export default function Financing({ setActiveTab, language }: FinancingProps) {
 
         </div>
 
-        {/* Call to action */}
-        <div className="bg-white border border-brand-accent/20 p-8 md:p-12 text-center rounded-xl shadow-xs max-w-4xl mx-auto">
-          <h3 className="text-2xl sm:text-3xl font-serif text-brand-primary mb-4">{f.ctaTitle}</h3>
-          <p className="text-brand-medium text-xs sm:text-sm max-w-2xl mx-auto mb-8 text-justify">
-            {f.ctaDesc}
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button
-              onClick={() => setActiveTab('contact')}
-              className="bg-brand-primary hover:bg-brand-medium text-brand-cream px-8 py-3.5 rounded-lg text-xs font-bold uppercase tracking-widest transition-all duration-300 shadow-sm cursor-pointer"
-            >
-              {f.ctaContact}
-            </button>
-            <button
-              onClick={() => setActiveTab('booking')}
-              className="bg-transparent hover:bg-brand-light text-brand-primary border border-brand-primary/20 hover:border-brand-primary px-8 py-3.5 rounded-lg text-xs font-bold uppercase tracking-widest transition-all duration-300 cursor-pointer flex items-center justify-center gap-2"
-            >
-              {f.ctaBook}
-              <ArrowRight size={14} className="text-brand-gold" />
-            </button>
-          </div>
-        </div>
+
 
       </div>
     </div>
