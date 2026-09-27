@@ -78,11 +78,11 @@ export const STAFF_MEMBERS: Staff[] = [
     id: 'staff-1',
     name: 'Robin Grönvall',
     title: 'Advokat / Delägare',
-    bio: 'Robin arbetar med brottmål. Han besitter gedigen erfarenhet av medialt uppmärksammade rättegångar, och uppträder regelbundet i domstol som försvarare i krävande brottmål. Robin åtar sig uppdrag som offentlig och privat försvarare samt som målsägandebiträde.',
+    bio: 'Robin är specialiserad på brottmål och arbetar främst som försvarare, med särskilt fokus på ekobrottmål och komplexa ärenden rörande organiserad brottslighet. Han besitter gedigen erfarenhet av grova brottmål och uppträder regelbundet i domstol i denna typ av krävande rättsprocesser. Robin åtar sig uppdrag som offentlig och privat försvarare, som målsägandebiträde samt särskild företrädare för barn.',
     email: 'robin@gronvallpartners.se',
     phone: '070-913 44 02',
     imageUrl: '/images/rob.jpg',
-    specialties: ['Brottmål (Offentlig/Privat försvarare)', 'Organiserad brottslighet', 'Grov brottslighet', 'Medialt uppmärksammade mål', 'Målsägandebiträde'],
+    specialties: ['Brottmål (Offentlig/Privat försvarare)', 'Organiserad brottslighet', 'Grov brottslighet', 'Ekonomisk brottslighet', 'Målsägandebiträde', 'Särskild företrädare för barn'],
     education: ['Juristexamen (LL.M.)', 'Ledamot av Sveriges advokatsamfund'],
     languages: ['Svenska (Modersmål)', 'Engelska (Flytande)']
   },

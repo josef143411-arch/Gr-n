@@ -46,8 +46,8 @@ const LOCALIZED_STAFF_MEMBERS = {
   sv: {
     'staff-1': {
       title: 'Advokat / Delägare',
-      bio: 'Robin arbetar med brottmål. Han besitter gedigen erfarenhet av medialt uppmärksammade rättegångar, och uppträder regelbundet i domstol som försvarare i krävande brottmål. Robin åtar sig uppdrag som offentlig och privat försvarare samt som målsägandebiträde.',
-      specialties: ['Brottmål (Offentlig/Privat försvarare)', 'Organiserad brottslighet', 'Grov brottslighet', 'Medialt uppmärksammade mål', 'Målsägandebiträde'],
+      bio: 'Robin är specialiserad på brottmål och arbetar främst som försvarare, med särskilt fokus på ekobrottmål och komplexa ärenden rörande organiserad brottslighet. Han besitter gedigen erfarenhet av grova brottmål och uppträder regelbundet i domstol i denna typ av krävande rättsprocesser. Robin åtar sig uppdrag som offentlig och privat försvarare, som målsägandebiträde samt särskild företrädare för barn.',
+      specialties: ['Brottmål (Offentlig/Privat försvarare)', 'Organiserad brottslighet', 'Grov brottslighet', 'Ekonomisk brottslighet', 'Målsägandebiträde', 'Särskild företrädare för barn'],
       education: ['Juristexamen (LL.M.)', 'Ledamot av Sveriges advokatsamfund'],
       languages: ['Svenska (Modersmål)', 'Engelska (Flytande)']
     },
@@ -97,14 +97,14 @@ const LOCALIZED_STAFF_MEMBERS = {
   en: {
     'staff-1': {
       title: 'Attorney / Partner',
-      bio: 'Robin works with criminal defense. He possesses solid experience of media-profiled trials, and regularly appears in court as defense counsel in demanding criminal cases. Robin accepts appointments as public and private defense counsel, as well as counsel for injured parties.',
+      bio: 'Robin is specialized in criminal defense and works primarily as defense counsel, with a special focus on financial crimes and complex cases concerning organized crime. He possesses solid experience of serious criminal cases and regularly appears in court in these types of demanding legal proceedings. Robin accepts appointments as public and private defense counsel, as well as counsel for injured parties and special representative for children.',
       specialties: ['Criminal Defense (Public/Private defense)', 'Organized Crime', 'Major Felonies', 'High-profile Cases', 'Counsel for Injured Parties'],
       education: ['Master of Laws (LL.M.)', 'Member of the Swedish Bar Association'],
       languages: ['Swedish (Native)', 'English (Fluent)']
     },
     'staff-josef': {
       title: 'Attorney / Partner',
-      bio: 'Josef is an attorney with extensive experience in qualified and complex criminal cases. He has extensive experience representing clients in high-profile and media-reported cases as well as cases concerning organized crime and white-collar/financial crime. Josef accepts appointments as public and private defense counsel, as well as counsel for injured parties and special representative for children.\n\nHe is also regularly engaged as counsel in complex custody disputes. He also accepts appointments as public counsel in cases under LVU, LPT, and LVM.',
+      bio: 'Josef is an attorney with extensive experience in qualified and complex criminal cases. He has extensive experience representing clients in high-profile and media-reported cases as well as cases concerning organized crime and financial crime. Josef accepts appointments as public and private defense counsel, as well as counsel for injured parties and special representative for children.\n\nHe is also regularly engaged as counsel in complex custody disputes. He also accepts appointments as public counsel in cases under LVU, LPT, and LVM.',
       specialties: ['Criminal Defense (Public/Private)', 'Compulsory Care (LVU, LPT, LVM)', 'White-Collar / Financial Crimes (Defense)', 'Organized Crime', 'Major Offences', 'Counsel for Injured Parties', 'Special Representative for Children', 'Custody Disputes & Family Law', 'Civil Litigation'],
       education: ['Master of Laws (LL.M.)', 'Bachelor of Science in Criminology', 'Member of the Swedish Bar Association'],
       languages: ['Swedish (Native)', 'English (Fluent)', 'Arabic (Fluent)']
@@ -118,14 +118,14 @@ const LOCALIZED_STAFF_MEMBERS = {
     },
     'staff-kevin': {
       title: 'Attorney / Notary Public',
-      bio: 'Kevin is an attorney and Notary Public, specializing in criminal defense, compulsory care cases (LVU, LPT, LVM), and family law. He accepts appointments as public and private defense counsel, as well as counsel for injured parties and special representative for children.',
+      bio: 'Kevin is an attorney and Notary Public, specialized in criminal defense, compulsory care cases (LVU, LPT, LVM), and family law. He accepts appointments as public and private defense counsel, as well as counsel for injured parties and special representative for children.',
       specialties: ['Criminal Defense (Public/Private)', 'Notary Public', 'Compulsory Care (LVU, LPT, LVM)', 'Organized Crime', 'Counsel for Injured Parties', 'Special Representative for Children', 'Family Law (Custody, residence, visitation)'],
       education: ['Master of Laws (LL.M.)', 'Member of the Swedish Bar Association'],
       languages: ['Swedish (Native)', 'English (Fluent)', 'Bosnian (Fluent)']
     },
     'staff-rosanna': {
       title: 'Paralegal',
-      bio: 'Rosanna is our paralegal and is usually the first person you come into contact with when submitting an inquiry. She is responsible for our initial client reception, coordinates cases, and provides administrative and practical support to our attorneys.',
+      bio: 'Rosanna is our paralegal and she is usually the first person you will meet or talk to when you get in touch with us. She is responsible for our initial client reception, coordinates cases, and provides administrative and practical support to our attorneys.',
       specialties: ['Client Reception', 'Case Coordination', 'Administrative Support'],
       education: ['Paralegal Diploma'],
       languages: ['Swedish (Native)', 'English (Fluent)']

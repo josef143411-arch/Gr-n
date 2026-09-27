@@ -110,21 +110,21 @@ export const TRANSLATIONS = {
         },
         'staff-josef': {
           title: 'Advokat / Delägare',
-          bio: 'Josef är advokat med omfattande erfarenhet av kvalificerade och komplexa brottmål. Han har omfattande erfarenhet av att företräda klienter i medialt uppmärksammade mål samt mål rörande organiserad brottslighet och ekonomisk brottslighet. Josef åtar sig uppdrag som offentlig och privat försvarare samt som målsägandebiträde och särskild företrädare för barn.',
+          bio: 'Josef är advokat med omfattande erfarenhet av kvalificerade och komplexa brottmål. Han har omfattande erfarenhet av att företräda klienter i medialt uppmärksammade mål samt mål rörande organiserad brottslighet och ekonomisk brottslighet. Josef åtar sig uppdrag som offentlig och privat försvarare samt som målsägandebiträde och särskild företrädare för barn.\n\nHan anlitas även regelbundet som ombud i komplicerade vårdnadstvister. Han åtar sig även uppdrag som offentligt biträde i mål enligt LVU, LPT och LVM.',
           specialties: ['Brottmål (Offentlig/Privat försvarare)', 'Tvångsmål (LVU, LPT, LVM)', 'Organiserad brottslighet', 'Grov brottslighet', 'Målsägandebiträde', 'Särskild företrädare för barn', 'Ekonomisk brottslighet'],
           education: ['Juristexamen (LL.M.)', 'Kandidatexamen i kriminologi', 'Ledamot av Sveriges advokatsamfund'],
           languages: ['Svenska (Modersmål)', 'Engelska (Flytande)', 'Arabiska (Flytande)']
         },
         'staff-katja': {
           title: 'Advokat / Delägare',
-          bio: 'Katja är advokat med omfattande erfarenhet av kvalificerade brottmål samt tvångsmål (LVU, LPT, LVM). Hon har företrätt klienter i ett stort antal mål avseende grov brottslighet, däribland mål rörande organiserad brottslighet.',
+          bio: 'Katja är advokat med omfattande erfarenhet av kvalificerade brottmål samt tvångsmål och psykiatrimål enligt LVU, LPT, LVM och LRV. Hon företräder regelbundet klienter i medialt uppmärksammade mål samt mål rörande grov och organiserad brottslighet och ekomål.\n\nKatja åtar sig även regelbundet uppdrag som målsägandebiträde och särskild företrädare för barn.',
           specialties: ['Brottmål (Offentlig/Privat försvarare)', 'Tvångsmål (LVU, LPT, LVM)', 'Organiserad brottslighet', 'Grov brottslighet', 'Målsägandebiträde', 'Särskild företrädare för barn'],
           education: ['Juristexamen (LL.M.)', 'Ledamot av Sveriges advokatsamfund'],
           languages: ['Svenska (Modersmål)', 'Engelska (Flytande)']
         },
         'staff-kevin': {
-          title: 'Advokat',
-          bio: 'Kevin är advokat specialiserad på brottmål, tvångsmål (LVU, LPT, LVM) och familjerätt. Han åtar sig uppdrag som offentlig och privat försvarare, samt som målsägandebiträde och särskild företrädare för barn.',
+          title: 'Advokat / Notarius Publicus',
+          bio: 'Kevin är advokat och Notarius Publicus, specialiserad på brottmål, tvångsmål (LVU, LPT, LVM) och familjerätt. Han åtar sig uppdrag som offentlig och privat försvarare, samt som målsägandebiträde och särskild företrädare för barn.',
           specialties: ['Brottmål (Offentlig/Privat försvarare)', 'Tvångsmål (LVU, LPT, LVM)', 'Organiserad brottslighet', 'Grov brottslighet', 'Målsägandebiträde', 'Särskild företrädare för barn', 'Familjerätt (Vårdnad, boende, umgänge)'],
           education: ['Juristexamen (LL.M.)', 'Ledamot av Sveriges advokatsamfund'],
           languages: ['Svenska (Modersmål)', 'Engelska (Flytande)', 'Bosniska (Flytande)']
@@ -395,14 +395,14 @@ export const TRANSLATIONS = {
       bios: {
         'staff-1': {
           title: 'Attorney / Partner',
-          bio: 'Robin works with criminal defense. He possesses solid experience of media-profiled trials, and regularly appears in court as defense counsel in demanding criminal cases. Robin accepts appointments as public and private defense counsel, as well as counsel for injured parties.',
+          bio: 'Robin is specialized in criminal defense and works primarily as defense counsel, with a special focus on financial crimes and complex cases concerning organized crime. He possesses solid experience of serious criminal cases and regularly appears in court in these types of demanding legal proceedings. Robin accepts appointments as public and private defense counsel, as well as counsel for injured parties and special representative for children.',
           specialties: ['Criminal Defense (Public/Private defense)', 'Organized Crime', 'Major Felonies', 'High-profile Cases', 'Counsel for Injured Parties'],
           education: ['Master of Laws (LL.M.)', 'Member of the Swedish Bar Association'],
           languages: ['Swedish (Native)', 'English (Fluent)']
         },
         'staff-josef': {
           title: 'Attorney / Partner',
-          bio: 'Josef is an attorney with extensive experience in qualified and complex criminal cases. He has extensive experience representing clients in high-profile and media-reported cases as well as cases concerning organized crime and white-collar/financial crime. Josef accepts appointments as public and private defense counsel, as well as counsel for injured parties and special representative for children.',
+          bio: 'Josef is an attorney with extensive experience in qualified and complex criminal cases. He has extensive experience representing clients in high-profile and media-reported cases as well as cases concerning organized crime and financial crime. Josef accepts appointments as public and private defense counsel, as well as counsel for injured parties and special representative for children.\n\nHe is also regularly engaged as counsel in complex custody disputes. He also accepts appointments as public counsel in cases under LVU, LPT, and LVM.',
           specialties: ['Criminal Defense (Public/Private)', 'Compulsory Care (LVU, LPT, LVM)', 'White-Collar / Financial Crimes (Defense)', 'Organized Crime', 'Major Offences', 'Counsel for Injured Parties', 'Special Representative for Children', 'Custody Disputes & Family Law', 'Civil Litigation'],
           education: ['Master of Laws (LL.M.)', 'Bachelor of Science in Criminology', 'Member of the Swedish Bar Association'],
           languages: ['Swedish (Native)', 'English (Fluent)', 'Arabic (Fluent)']
@@ -416,14 +416,14 @@ export const TRANSLATIONS = {
         },
         'staff-kevin': {
           title: 'Attorney / Notary Public',
-          bio: 'Kevin is an attorney and Notary Public, specializing in criminal defense, compulsory care cases (LVU, LPT, LVM), and family law. He accepts appointments as public and private defense counsel, as well as counsel for injured parties and special representative for children.',
+          bio: 'Kevin is an attorney and Notary Public, specialized in criminal defense, compulsory care cases (LVU, LPT, LVM), and family law. He accepts appointments as public and private defense counsel, as well as counsel for injured parties and special representative for children.',
           specialties: ['Criminal Defense (Public/Private)', 'Notary Public', 'Compulsory Care (LVU, LPT, LVM)', 'Organized Crime', 'Counsel for Injured Parties', 'Special Representative for Children', 'Family Law (Custody, residence, visitation)'],
           education: ['Master of Laws (LL.M.)', 'Member of the Swedish Bar Association'],
           languages: ['Swedish (Native)', 'English (Fluent)', 'Bosnian (Fluent)']
         },
         'staff-rosanna': {
           title: 'Paralegal',
-          bio: 'Rosanna is our paralegal and is usually the first person you come into contact with when submitting an inquiry. She is responsible for our initial client reception, coordinates cases, and provides administrative and practical support to our attorneys.',
+          bio: 'Rosanna is our paralegal and she is usually the first person you will meet or talk to when you get in touch with us. She is responsible for our initial client reception, coordinates cases, and provides administrative and practical support to our attorneys.',
           specialties: ['Client Reception', 'Case Coordination', 'Administrative Support'],
           education: ['Paralegal Diploma'],
           languages: ['Swedish (Native)', 'English (Fluent)']

@@ -1,7 +1,12 @@
 <?php
 header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: Content-Type");
+header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
+header("Access-Control-Allow-Methods: POST, OPTIONS");
 header("Content-Type: application/json; charset=UTF-8");
+
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    exit(0);
+}
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     echo json_encode(["success" => false, "message" => "Only POST requests are allowed."]);
@@ -9,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 // Destination email address
-$to = "info@hgaadvokat.se";
+$to = "info@gronvallpartners.se";
 
 // Retrieve submission type
 $type = isset($_POST['type']) ? $_POST['type'] : '';
@@ -160,7 +165,7 @@ if ($has_file) {
 
     // Mail Headers with attachment support
     $headers = "MIME-Version: 1.0\r\n";
-    $headers .= "From: Grönvall & Partners Webb <noreply@hgaadvokat.se>\r\n";
+    $headers .= "From: Grönvall & Partners Webb <noreply@gronvallpartners.se>\r\n";
     $headers .= "Reply-To: " . ($email ?? $to) . "\r\n";
     $headers .= "Content-Type: multipart/mixed; boundary=\"" . $boundary . "\"\r\n";
 
@@ -183,7 +188,7 @@ if ($has_file) {
     // Standard HTML email without attachments
     $headers = "MIME-Version: 1.0\r\n";
     $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
-    $headers .= "From: Grönvall & Partners Webb <noreply@hgaadvokat.se>\r\n";
+    $headers .= "From: Grönvall & Partners Webb <noreply@gronvallpartners.se>\r\n";
     $headers .= "Reply-To: " . ($email ?? $to) . "\r\n";
 
     $sent = mail($to, $subject, $body, $headers);
